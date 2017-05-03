@@ -1,0 +1,33 @@
+body{
+	background: #D2F9FA;
+}
+
+#icon{
+	width: 400px;
+}
+#top{
+	width:50vw;
+	display: inline;
+}
+
+#search_wrap{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+#search_bar{
+	width: 200px;
+	margin: 10px;
+	padding:5px 0px 5px 5px;
+	
+}
+h1{
+	background: white;
+	margin: auto;
+	padding: 1vw;
+}
+
+
+	display:inline;
+}
