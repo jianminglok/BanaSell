@@ -9,6 +9,32 @@ unset($_SESSION['email2']);
 //set validation error flag as false
 $error = false;
 
+if(isset($_POST["g-recaptcha-response"])) {
+$response = $_POST["g-recaptcha-response"];
+	$url = 'https://www.google.com/recaptcha/api/siteverify';
+	$data = array(
+		'secret' => '6LdCACcUAAAAAP21WAlXjZaFpem_an3HiizWymAf',
+		'response' => $_POST["g-recaptcha-response"]
+	);
+	$options = array(
+		'http' => array (
+			'method' => 'POST',
+			'content' => http_build_query($data)
+		)
+	);
+
+$context  = stream_context_create($options);
+	$verify = file_get_contents($url, false, $context);
+	$captcha_success=json_decode($verify);
+	if ($captcha_success->success==false) {
+		echo "<p>You are a bot! Go away!</p>";
+		exit();
+	} else if ($captcha_success->success==true) {
+		echo "<p>You are not not a bot!</p>";
+		exit();
+	}
+	}
+
 //check if form is submitted
 if (isset($_POST['signup'])) {
 	$email = mysqli_real_escape_string($con, $_POST['email']);
@@ -78,155 +104,142 @@ if (isset($_POST['signup'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Sign Up</title>
-	
+	<title>BanaSell - Watchlist</title>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body>
+<body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: left top;">   
 
-<?php $page = 'updateemail.php'; include('nav.php'); ?>
+<?php $page = 'updateemail.php'; include('nav4.php'); ?>
 
-<div class="container" id="1">
-	<div class="row " id="2">
-		<div class="" id="3">
-
-<?php 
-	//date in mm/dd/yyyy format; or it can be in other formats as well
-  
-
-if(!empty($_SESSION['birthdate'])) {
-
-	$dbd=$_SESSION['birthdate'];
-	//explode the date to get month, day and year
-  $birthDate = explode("-", $dbd);
-  //get age from date or birthdate
-  $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
-    ? ((date("Y") - $birthDate[0]) - 1)
-    : (date("Y") - $birthDate[0])); 
-} else {
-	$dbd = date("m/d/Y");
-  //explode the date to get month, day and year
-  $birthDate = explode("/", $dbd);
-  //get age from date or birthdate
-  $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
-    ? ((date("Y") - $birthDate[2]) - 1)
-    : (date("Y") - $birthDate[2])); 
+<!-- Wide card with share menu button -->
+<style>
+.demo-card-wide.mdl-card {
+  width: 350px;
+  height: 630px;
 }
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: #da4932;
+}
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
 
-?>
+<main class="mdl-layout__content" >
+<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
 
 <?php if(isset($_SESSION['usr_id'])) { ?>
-<ul class="nav nav-pills nav-stacked" style="position: absolute; top: 50%; left: 12%; transform: translate(-50%, -50%); width: 12%">
-  <li class="nav-item">
-    <a <?php echo ($page == 'updateemail.php') ? "class='nav-link active'" : ""; ?> class="nav-link" href="updateemail.php" disabled>Update Email</a>
-  </li>
-  <li class="nav-item">
-    <a <?php echo ($page == 'updateinfo.php') ? "class='nav-link active'" : ""; ?> class="nav-link" href="updateinfo.php" disabled>Update Info</a>
-  </li>
-</ul>
 
-<form role="form" id="testform" class="form1" style="position: absolute; top: 55%; left: 50%; transform: translate(-35%, -50%); width: 70%" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-				<fieldset style="width: 100%;">
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" style=" margin: 45px 0;
+    max-width: 1044px;
+    margin-left: auto;
+    margin-right: auto;">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Sign In</h2>
+  </div>
+  <!-- MDL Progress Bar with Indeterminate Progress -->
+  <div class="mdl-card__supporting-text" >
 
-					<?php if(isset($email_error)) { ?>
-					<div class="form-group has-danger" >
-					  <input type="text" name="email" placeholder="Email" required value="<?php if($error) { echo $email; } ?>" class="form-control form-control-danger">
-					  <div class="form-control-feedback"><?php if (isset($email_error)) echo $email_error; ?></div>
-					  <small class="form-text text-muted">Please enter your existing email address.</small>
-					</div>
-					<?php } elseif(!isset($email_error) && isset($_POST['signup'])) { ?>
-					<div class="form-group has-success" >
-					  <input type="text" name="email" placeholder="Email" required value="<?php if($error) { echo $email; } elseif(!empty($_SESSION['email'])) { echo $_SESSION['email']; } else { } ?>" class="form-control form-control-success">
-					  <small class="form-text text-muted">Please enter your existing valid email address.</small>
-					</div>
-					<?php } else { ?>
-					<div class="form-group" >
-					  <input type="text" name="email" placeholder="Email" required value="<?php if($error) { echo $email; } elseif(!empty($_SESSION['email'])) { echo $_SESSION['email']; } else { } ?>" class="form-control ">
-					  <small class="form-text text-muted">Please enter your existing valid email address.</small>
-					</div>
-					<?php } ?>
+<form role="form" id="testform" class="form1" style="padding-left: 1em; padding-right: 1em; padding-top: 1em; padding-bottom: 1.5em;" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
 
-					<?php if(isset($email2_error)) { ?>
-					<div class="form-group has-danger" >
-					  <input type="text" name="email2" placeholder="Email" required value="<?php if($error) { echo $email2; } ?>" autocomplete="off" class="form-control form-control-danger">
-					  <div class="form-control-feedback"><?php if (isset($email2_error)) echo $email2_error; ?></div>
-					  <small class="form-text text-muted">Please enter a valid email address.</small>
-					</div>
-					<?php } elseif(!isset($email2_error) && isset($_POST['signup'])) { ?>
-					<div class="form-group has-success" >
-					  <input type="text" name="email2" placeholder="Email" required value="<?php if($error) { echo $email2; } elseif(!empty($_SESSION['email2'])) { echo $_SESSION['email2']; } else { } ?>" autocomplete="off" class="form-control form-control-success">
-					  <small class="form-text text-muted">Please enter a valid email address.</small>
-					</div>
-					<?php } else { ?>
-					<div class="form-group" >
-					  <input type="text" name="email2" placeholder="Email" required value="<?php if($error) { echo $email2; } elseif(!empty($_SESSION['email2'])) { echo $_SESSION['email2']; } else { } ?>" autocomplete="off" class="form-control ">
-					  <small class="form-text text-muted">Please enter a valid email address.</small>
-					</div>
-					<?php } ?>
-
-					<?php if(isset($errormsg)) { ?>
-					<div class="form-group has-danger" >
-					  <input type="password" name="password" placeholder="Password" required class="form-control" class="form-control form-control-danger">
-					  <small class="form-text text-muted">Please enter your password.</small>
-					</div>
-					<?php } else { ?>
-					<div class="form-group" >
-					  <input type="password" name="password" placeholder="Password" required class="form-control"  class="form-control ">
-					  <small class="form-text text-muted">Please enter your password.</small>
-					</div>
-					<?php } ?>
-
-					<div class="form-group">
-						<div class="btn-group" role="group" aria-label="button-signupform">
-						  <button type="submit" name="signup" class="btn btn-outline-primary">Sign Up</button>
-
-						</div>
-						
-					</div>
+<?php if($error) { ?>   
+    <label class="mdl-textfield--floating-label	" for="email">Please enter your email</label>
+    <div class="mdl-textfield mdl-js-textfield is-invalid" style="margin-bottom: 0.5em;">
+      <input name="email" class="mdl-textfield__input" required value="<?php echo $email ?>" type="email" id="email">
+      <label class="mdl-textfield__label" for="email">Email</label>
+    </div>
+		<div class="mdl-textfield mdl-js-textfield is-invalid" style="margin-bottom: 0.5em;">
+      <input name="email2" class="mdl-textfield__input" required value="<?php echo $email ?>" type="email" id="email">
+      <label class="mdl-textfield__label" for="email2">Email</label>
+    </div>
+    <label class="mdl-textfield--floating-label" for="password">Please enter your password</label>
+    <div class="mdl-textfield mdl-js-textfield is-invalid" >
+      <input name="password" class="mdl-textfield__input" required type="password" id="password">
+      <label class="mdl-textfield__label" for="password">Password</label>
+    </div>
+    </script>
+    <?php } else { ?>
+    <label class="mdl-textfield--floating-label	" for="email">Please enter your email</label>
+    <div class="mdl-textfield mdl-js-textfield" style="margin-bottom: 0.5em;">
+      <input name="email" class="mdl-textfield__input" required type="email" id="email">
+      <label class="mdl-textfield__label" for="email">Email</label>
+    </div>
+		<div class="mdl-textfield mdl-js-textfield" style="margin-bottom: 0.5em;">
+      <input name="email2" class="mdl-textfield__input" required type="email" id="email2">
+      <label class="mdl-textfield__label" for="email2">Email</label>
+    </div>
+    <label class="mdl-textfield--floating-label" for="password">Please enter your password</label>
+    <div class="mdl-textfield mdl-js-textfield" >
+      <input name="password" class="mdl-textfield__input" required type="password" id="password">
+      <label class="mdl-textfield__label" for="password">Password</label>
+    </div>
+    
+    <?php } ?>
 		
-					<span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+  </div>
 
-				</fieldset></div>
+	<div style="padding-left: 1.5em">
+    <div class="g-recaptcha" data-sitekey="6LdCACcUAAAAAPxzdpV5cuDS9dOWZukpisPrqsTy" style="padding-bottom: 1.5em; "></div>
+	</div>
+
+  <div class="mdl-card__actions mdl-card--border">
+    <button name="login" type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 0.5em;">
+      Sign In
+    </button>
+    <button onclick="window.location.href='reset.php'" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      Need Help?
+    </button>
+  </div>
+
+
+
 			</form>
 
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4 text-center">	
-		Already Registered? <a href="login.php">Login Here</a>
-		</div>
-	</div>
+	
+	
+	
 </div>
-<?php } else { ?>
-<div class="container" >
- 
-	<div class="row" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" >
-		<div class="text-center" >	
-		Please sign in to update your info. <a href="login.php">Your can sign in here.</a>
-		</div>
-	</div>
-</div>
-<?php } ?>
+</section>
+<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+</section>
+</main>
 
+<?php } else { $errorinfo = 'Please sign in to update your info. Thanks.'; ?>
 
-<script type="text/javascript">
-$(function() {
-    $('input[name="birthdate"]').daterangepicker({
-        singleDatePicker: true,
-        showDropdowns: true
-    }, 
-    function(start, end, label) {
-        var years = moment().diff(start, 'years');
+<p style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 17px;">Please sign in to update your info. <a href="login.php">You can sign in here.</a></p>
 
-    });
-});
-</script>
+<?php } ?>      
 
-
-
-</body>
+  </body>
 </html>
 
+<?php if(isset($errorinfo)) { ?>
+<div id="error-toast" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text" style="margin-right: 9px"></div>
+  <button class="mdl-snackbar__action" type="button" style="display:none"></button>
+</div>
+
+
+<script>
+r(function(){
+    var snackbarContainer = document.querySelector('#error-toast');
+    var data = {
+      message: '<?php echo $errorinfo; ?>',
+      timeout: 5000
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+});
+function r(f){ /in/.test(document.readyState)?setTimeout('r('+f+')',1):f()}
+</script>
+ 
+<?php } ?>
+
+<script src="js/material.js"></script>
+<script src="js/mdl-selectfield.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 

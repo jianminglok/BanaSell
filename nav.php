@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="css/material.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mdl-selectfield.min.css">
+    <link  href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="js/material.js"></script>
+    <script src="js/mdl-selectfield.min.js"></script>
     
     <style>
     #view-source {

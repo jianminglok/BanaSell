@@ -17,22 +17,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script src="js/material.js"></script>
     <script src="js/mdl-selectfield.min.js"></script>
-    <script>
-    var today = new Date();  //Get today's date
-    var lastDate = new Date(today.getFullYear() -12, 11, 31);  //To get the 31st Dec of next year
-    var firstDate = new Date(today.getFullYear() -170, 0, 1);  
-        $(function(){           
-            if (!Modernizr.inputtypes.date) {
-                $('input[type=date]').datepicker({
-                      dateFormat : 'yy-mm-dd',
-                      minDate: firstDate,
-                      maxDate: lastDate,
-                      hideIfNoPrevNext: true
-                    }
-                );
-            }
-        });
-    </script>
     <style>
     #view-source {
       position: fixed;
@@ -102,14 +86,13 @@ if (isset($_SESSION['previous3'])) {
    }
 }
 
-if (isset($_SESSION['previous4'])) {
+if (isset($_SESSION['previous4']) && isset($_SESSION['created'])) {
    if (basename($_SERVER['PHP_SELF']) != $_SESSION['previous4'] OR time() - $_SESSION['created'] > 5) {
         unset($_SESSION['error_info']); 
         ### or alternatively, you can use this for specific variables:
         ### unset($_SESSION['varname']);
    }
 }
-
 
 ?>
 
@@ -187,8 +170,8 @@ if (isset($_SESSION['previous4'])) {
         <!-- Tabs -->
      <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect" >
-      <a <?php echo ($page == 'dob.php') ? "class='mdl-layout__tab is-active' href='#'" : ""; ?> href="dob.php" class="mdl-layout__tab">First Step</a>
-      <a <?php echo ($page == 'register.php') ? "class='mdl-layout__tab is-active' href='#'" : ""; ?> <?php echo (empty($_SESSION['birthdate']) && empty($_SESSION['name'])) ? "href='#' id='demo-show-snackbar'" : ""; ?> href="register.php" class="mdl-layout__tab">Second Step</a>
+      <a <?php echo ($page == 'updateemail.php') ? "class='mdl-layout__tab is-active' href='#'" : ""; ?> href="updateemail.php" class="mdl-layout__tab">Update Email</a>
+      <a <?php echo ($page == 'updateinfo.php') ? "class='mdl-layout__tab is-active' href='#'" : ""; ?>  href="updateinfo.php" class="mdl-layout__tab">Update Info</a>
     </div>
       </div>
 
@@ -213,28 +196,3 @@ if (isset($_SESSION['previous4'])) {
         </nav>
       </div>
 
-<?php if (empty($_SESSION['birthdate']) && empty($_SESSION['name'])) { ?>
-<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-  <div class="mdl-snackbar__text" style="margin-right: 11px"></div>
-  <button class="mdl-snackbar__action" style="display:none" type="button"></button>
-</div>
-<?php } ?>
-
-<script>
-(function() {
-  'use strict';
-  var snackbarContainer = document.querySelector('#demo-snackbar-example');
-  var showSnackbarButton = document.querySelector('#demo-show-snackbar');
-  var handler = function(event) {
-    showSnackbarButton.style.backgroundColor = '';
-  };
-  showSnackbarButton.addEventListener('click', function() {
-    'use strict';
-    var data = {
-      message: 'Please select your date of birth before continuing.',
-      timeout: 5000,
-    };
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
-  });
-}());
-</script>      

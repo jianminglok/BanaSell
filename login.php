@@ -11,10 +11,23 @@ include_once 'dbconnect.php';
 
 $error = false;
 
+require_once __DIR__ . '/recaptcha/autoload.php';
+$recaptcha = new \ReCaptcha\ReCaptcha('6LdCACcUAAAAAP21WAlXjZaFpem_an3HiizWymAf');
+
 //check if form is submitted
 if (isset($_POST['login'])) {
+  
+  if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
 
-	$email = $_POST['email'];
+     $resp = $recaptcha->verify($_POST["g-recaptcha-response"], $_SERVER['REMOTE_ADDR']);
+
+	 if (!$resp->isSuccess()) {
+    $errorinfo = "Bots are not welcomed! Go away please! :P";
+		exit();
+    
+	} else  if($resp->isSuccess()) {
+		
+		$email = $_POST['email'];
 
 	$check = mysqli_query($con, "SELECT * FROM confirm WHERE email = '$email'");
 	$row=mysqli_fetch_array($check,MYSQLI_ASSOC);
@@ -49,6 +62,14 @@ if (isset($_POST['login'])) {
 	$errorinfo = "Your account is not activated or your new email address has not been verified.";
   $error = true;
 }
+
+
+	}
+	
+  } else {
+    $errorinfo = "Please tick the reCAPTCHA verification checkbox before continuing.";
+  }
+	
 }
 ?>
 
@@ -56,7 +77,7 @@ if (isset($_POST['login'])) {
 <html style="height:100%; ">
 <head>
 	<title>BanaSell - Sign In</title>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
         background-repeat: no-repeat;
@@ -81,7 +102,9 @@ if (isset($_POST['login'])) {
 }
 </style>
 <main class="mdl-layout__content">
-<div class="demo-card-wide mdl-card mdl-shadow--2dp" style=" margin: 5px 0;
+
+<form method="post" action="#" style="">  
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" style=" margin: 45px 0;
     max-width: 1044px;
     margin-left: auto;
     margin-right: auto;">
@@ -89,8 +112,8 @@ if (isset($_POST['login'])) {
     <h2 class="mdl-card__title-text">Sign In</h2>
   </div>
   <!-- MDL Progress Bar with Indeterminate Progress -->
-  <div class="mdl-card__supporting-text">
-  <form method="post" action="#" style="padding-left: 1em; padding-right: 1em; padding-top: 1em; padding-bottom: 1.5em;">  
+  <div class="mdl-card__supporting-text" style="margin-left: 1em; margin-right: 1em; margin-top: 0.82em; margin-bottom: 1.5em;">
+  
    <!-- Simple Textfield -->
     <?php if($error) { ?>   
     <label class="mdl-textfield--floating-label	" for="email">Please enter your email</label>
@@ -126,9 +149,12 @@ if (isset($_POST['login'])) {
     
     <?php } ?>
 
-      <div class="g-recaptcha" data-sitekey="your_site_key" style="padding-top: 1.5em; padding-bottom: 1.5em"></div>
-
   </div>
+
+  <div style="padding-left: 1.5em">
+    <div class="g-recaptcha" data-sitekey="6LdCACcUAAAAAPxzdpV5cuDS9dOWZukpisPrqsTy" style="padding-bottom: 1.5em; "></div>
+	</div>
+
   <div class="mdl-card__actions mdl-card--border">
     <button name="login" type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 0.5em;">
       Sign In
@@ -137,9 +163,10 @@ if (isset($_POST['login'])) {
       Need Help?
     </button>
   </div>
+  </div>
   </form>
+</form>
 
-</div>
 </main>
 <?php if(isset($errorinfo)) { ?>
 <div id="error-toast" class="mdl-js-snackbar mdl-snackbar">

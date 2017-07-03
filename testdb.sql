@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 `id` int(8) NOT NULL AUTO_INCREMENT,
 `name` varchar(30) NOT NULL,
 `email` varchar(60) NOT NULL,
-`password` varchar(40) NOT NULL,
+`password` varchar(100) NOT NULL,
 `dateofbirth` varchar(40) NOT NULL,
 `age` varchar(4) NOT NULL,
 `form` varchar(10) NOT NULL,

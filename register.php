@@ -95,6 +95,8 @@ if (isset($_POST['signup'])) {
 exit();
 		} else {
 			$errormsg = "Error in registering...Please try again later!";
+			echo $errormsg;
+			exit();
 		}
 	}
 
