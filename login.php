@@ -12,7 +12,7 @@ include_once 'dbconnect.php';
 $error = false;
 
 require_once __DIR__ . '/recaptcha/autoload.php';
-$recaptcha = new \ReCaptcha\ReCaptcha('6LdCACcUAAAAAP21WAlXjZaFpem_an3HiizWymAf');
+$recaptcha = new \ReCaptcha\ReCaptcha('6LeNwScUAAAAAIjCcPf3CNL9f-7l5WYpyoismfJG');
 
 //check if form is submitted
 if (isset($_POST['login'])) {
@@ -152,7 +152,7 @@ if (isset($_POST['login'])) {
   </div>
 
   <div style="padding-left: 1.5em">
-    <div class="g-recaptcha" data-sitekey="6LdCACcUAAAAAPxzdpV5cuDS9dOWZukpisPrqsTy" style="padding-bottom: 1.5em; "></div>
+    <div class="g-recaptcha" data-sitekey="6LeNwScUAAAAAOEEkybIcPq7Rl9pzd5hqRtSvSEf" style="padding-bottom: 1.5em; "></div>
 	</div>
 
   <div class="mdl-card__actions mdl-card--border">
