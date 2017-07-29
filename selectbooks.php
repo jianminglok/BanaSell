@@ -257,7 +257,52 @@ if (isset($_POST['signup'])) {
 				height: 57%;
 			}
 		}
+
+		.test {
+			margin-top: 4%;
+	padding-left: 30%;
+	}
+  .test2 {
+	width: 80%;
+  background-color: #fff;
+  margin: 0 auto;
+	}
+.test3 {
+  margin-left: 2em;
+}
+.test5{
+  margin-left: 2em;
+}
 		</style>
+
+		<div class="mdl-shadow--2dp test2" style=" ">
+ 
+	<!-- Colored raised button -->
+	<div class="test" >
+  <form style="padding-top: 1em;" method="post" action="filterbooks.php">
+<label class="mdl-textfield--floating-label	" for="form" style="position: absolute">Select your form:</label>
+					<div class="mdl-selectfield mdl-js-selectfield" style="margin-right: 2em;">
+						<select name="form" required class="mdl-selectfield__select mdl-textfield__input">
+							<option></option>
+              <option value="all">All</option>
+							<option value="form1">Junior 1</option>
+							<option value="form2">Junior 2</option>
+							<option value="form3">Junior 3</option>
+							<option value="form4">Senior 1</option>
+							<option value="form5">Senior 2</option>
+							<option value="form6">Senior 3</option>
+						</select>
+						<label class="mdl-selectfield__label" for="myselect">Choose your form</label>
+					</div>
+
+<!-- Colored raised button -->
+<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored test5" style="margin-bottom: 1em; ">
+  Apply
+</button>
+          </form>
+</div>
+</div>
+
 			<div class="banasell-more-section"><div class="banasell-card-container mdl-grid">
 			<div class="demo-card-wide mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp card1">
         <div class="mdl-card__title">
@@ -695,3 +740,4 @@ function r(f){ /in/.test(document.readyState)?setTimeout('r('+f+')',1):f()}
 </script> 
 
 <script src="js/material.js"></script>
+<script src="js/mdl-selectfield.min.js"></script>

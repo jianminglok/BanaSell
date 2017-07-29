@@ -239,10 +239,7 @@ $('.uploadimage').change(function(){
 				</div>
 				<div class="mdl-card__actions mdl-card--border">
 					<button name="signup" type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 1.5em;">
-						Sign Up
-					</button>
-					<button  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Need Help?
+						Post Ad
 					</button>
 				</div>
 				</form>

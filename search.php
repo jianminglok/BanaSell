@@ -159,7 +159,7 @@ $result = mysqli_query($con, "SELECT * FROM books WHERE `title` LIKE '%".$query.
     <a name="ads"></a>
           <div class="banasell-card-container mdl-grid">
 
-<?php  while($row = mysqli_fetch_array($result)) {  ?>
+<?php while($row = mysqli_fetch_array($result)) {  ?>
          
             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
               <div class="mdl-card__media" style="height: 200px; background-color: #f0eded; position: relative;">
@@ -211,12 +211,12 @@ $result = mysqli_query($con, "SELECT * FROM books WHERE `title` LIKE '%".$query.
 		display:none;
 		}</style>
 
-<?php } } ?>            
+<?php } } else {?>            
 
-<p style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 17px;">No results were found based on your search.</a></p>
+<p style="color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 17px;">No results were found based on your search.</p>
 
 <?php
- 
+}
 
 ?>
 </body>
