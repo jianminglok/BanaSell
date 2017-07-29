@@ -170,7 +170,7 @@ if (isset($_SESSION['previous4'])) {
         <span class="mdl-layout-title"  style="line-height: 1em !important">
           <i class="material-icons" style="padding-top: 3em;">account_circle</i>
           <br></br>
-          <span><?php if(isset($_SESSION['usr_name'])) { echo $_SESSION['usr_name']; } else { echo 'Sign In'; } ?></span>
+          <span><?php if(isset($_SESSION['usr_name'])) { echo $_SESSION['usr_name']; } else { echo 'Ogiebooks'; } ?></span>
         </span>
         <nav class="mdl-navigation">
            <a <?php echo ($page == 'index.php') ? "class='mdl-navigation__link mdl-navigation__link-active' href='#'" : ""; ?> class="mdl-navigation__link" href="index.php">Home</a>

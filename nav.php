@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Introducing Lollipop, a sweet new take on ogiebooks.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Ogiebooks</title>
+    <title>banasell</title>
 
     <!-- Page styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
