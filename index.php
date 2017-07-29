@@ -5,7 +5,7 @@ include_once 'dbconnect.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell</title>
+	<title>Ogiebooks</title>
 </head>
 <body>
 
@@ -35,7 +35,7 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
  <div class="banasell-content mdl-layout__content">
         <a name="top"></a>
         <div class="intro-section mdl-typography--text-center">
-          <div class="logo-font banasell-slogan">BanaSell</div>
+          <div class="logo-font banasell-slogan">Ogiebooks</div>
           <div class="logo-font banasell-sub-slogan">A 2nd hand book selling website made by STTSS students, for STTSS students</div>
           <div class="logo-font banasell-create-character">
             <a href=""><i class="material-icons">info_outline</i> Learn more about us</a>
@@ -248,7 +248,7 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
             </div>
           </div>
 
-          Copyright <?php echo date('Y'); ?> Banasell.
+          Copyright <?php echo date('Y'); ?> Ogiebooks.
 
           <a href="http://www.beyondsecurity.com/vulnerability-scanner-verification/banasell.gq"><img src="https://seal.beyondsecurity.com/verification-images/banasell.gq/vulnerability-scanner-2.gif" alt="Website Security Test" border="0" /></a>
 

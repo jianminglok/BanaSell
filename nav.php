@@ -1,9 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Introducing Lollipop, a sweet new take on banasell.">
+    <meta name="description" content="Introducing Lollipop, a sweet new take on ogiebooks.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>banasell</title>
+    <title>Ogiebooks</title>
 
     <!-- Page styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
@@ -174,7 +174,7 @@ if (isset($_SESSION['previous4']) && isset($_SESSION['created'])) {
         <span class="mdl-layout-title"  style="line-height: 1em !important">
           <i class="material-icons" style="padding-top: 3em;">account_circle</i>
           <br></br>
-          <span><?php if(isset($_SESSION['usr_name'])) { echo $_SESSION['usr_name']; } else { echo 'BanaSell'; } ?></span>
+          <span><?php if(isset($_SESSION['usr_name'])) { echo $_SESSION['usr_name']; } else { echo 'Ogiebooks'; } ?></span>
         </span>
         <nav class="mdl-navigation">
           <a <?php echo ($page == 'index.php') ? "class='mdl-navigation__link mdl-navigation__link-active' href='#'" : ""; ?> class="mdl-navigation__link" href="index.php">Home</a>

@@ -46,7 +46,7 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Sign In</title>
+	<title>Ogiebooks - Sign In</title>
 </head>
 <body>
 

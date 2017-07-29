@@ -76,7 +76,7 @@ if(isset($_POST['cleardob'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Sign Up</title>
+	<title>Ogiebooks - Sign Up</title>
 	
 </head>
 <body>

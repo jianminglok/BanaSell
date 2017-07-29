@@ -117,7 +117,7 @@ if(isset($_POST['cleardob'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Sign Up</title>
+	<title>Ogiebooks - Sign Up</title>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
         background-repeat: no-repeat;

@@ -53,13 +53,13 @@ function send_mail($to, $token)
 	$mail->Port = 587;
 	
 	$mail->From = 'rhytion.my@gmail.com';
-	$mail->FromName = 'BanaSell';
+	$mail->FromName = 'Ogiebooks';
 	$mail->addAddress($to);
 	$mail->addReplyTo('lokjianming@gmail.com', 'Reply');
 	
 	$mail->isHTML(true);
 	
-	$mail->Subject = 'BanaSell: Password Recovery Instruction';
+	$mail->Subject = 'Ogiebooks: Password Recovery Instruction';
 	$link = 'http://localhost/forget.php?email='.$to.'&token='.$token;
 //Body of the mail
             $mail->Body = <<< EOF
@@ -85,7 +85,7 @@ function send_mail($to, $token)
 								<table class="container header" border="0" cellpadding="0" cellspacing="0" width="620" style="width: 620px;">
 									<tr>
 										<td style="padding: 30px 0 30px 0; border-bottom: solid 1px #eeeeee;" align="left">
-											<a href="#" style="font-size: 30px; text-decoration: none; color: #000000;">Banasell</a>
+											<a href="#" style="font-size: 30px; text-decoration: none; color: #000000;">Ogiebooks</a>
 										</td>
 									</tr>
 								</table>
@@ -162,7 +162,7 @@ function send_mail($to, $token)
 																	<img src="http://dev2.slicejack.com/portfolio-email/img/img13.png">
 																</td>
 
-																<td class="info-bullets__content" style="color: #969696; font-size: 16px;">help@banasell.gq</td>
+																<td class="info-bullets__content" style="color: #969696; font-size: 16px;">help@ogiebooks.gq</td>
 															</tr>
 														</table>
 													</td>
@@ -254,7 +254,7 @@ function send_mail($to, $token)
 											<table class="container" border="0" cellpadding="0" cellspacing="0" width="620" align="center" style="border-top: 1px solid #eeeeee; width: 620px;">
 												<tr>
 													<td style="text-align: center; padding: 50px 0 10px 0;">
-														<a href="#" style="font-size: 28px; text-decoration: none; color: #d5d5d5;">Banasell</a>
+														<a href="#" style="font-size: 28px; text-decoration: none; color: #d5d5d5;">Ogiebooks</a>
 													</td>
 												</tr>
 
@@ -269,7 +269,7 @@ function send_mail($to, $token)
 												</tr>
 
 												<tr>
-													<td style="color: #d5d5d5; text-align: center; font-size: 15px; padding: 10px 0 60px 0; line-height: 22px;">Copyright &copy; 2017 <a href="http://slicejack.com/" target="_blank" style="text-decoration: none; border-bottom: 1px solid #d5d5d5; color: #d5d5d5;">Banasell</a>. <br />A 2nd hand book selling website made by STTSS students, for STTSS students <br />All rights reserved.</td>
+													<td style="color: #d5d5d5; text-align: center; font-size: 15px; padding: 10px 0 60px 0; line-height: 22px;">Copyright &copy; 2017 <a href="http://slicejack.com/" target="_blank" style="text-decoration: none; border-bottom: 1px solid #d5d5d5; color: #d5d5d5;">Ogiebooks</a>. <br />A 2nd hand book selling website made by STTSS students, for STTSS students <br />All rights reserved.</td>
 												</tr>
 											</table>
 										</td>
@@ -319,13 +319,13 @@ function send_verification_mail($to, $key)
 	$mail->Port = 587;
 	
 	$mail->From = 'rhytion.my@gmail.com';
-	$mail->FromName = 'BanaSell';
+	$mail->FromName = 'Ogiebooks';
 	$mail->addAddress($to);
 	$mail->addReplyTo('lokjianming@gmail.com', 'Reply');
 	
 	$mail->isHTML(true);
 	
-	$mail->Subject = 'BanaSell: Sign Up Verification Email';
+	$mail->Subject = 'Ogiebooks: Sign Up Verification Email';
 
 	//Body of the mail
             $mail->Body = <<< EOF
@@ -351,7 +351,7 @@ function send_verification_mail($to, $key)
 								<table class="container header" border="0" cellpadding="0" cellspacing="0" width="620" style="width: 620px;">
 									<tr>
 										<td style="padding: 30px 0 30px 0; border-bottom: solid 1px #eeeeee;" align="left">
-											<a href="#" style="font-size: 30px; text-decoration: none; color: #000000;">Banasell</a>
+											<a href="#" style="font-size: 30px; text-decoration: none; color: #000000;">Ogiebooks</a>
 										</td>
 									</tr>
 								</table>
@@ -428,7 +428,7 @@ function send_verification_mail($to, $key)
 																	<img src="http://dev2.slicejack.com/portfolio-email/img/img13.png">
 																</td>
 
-																<td class="info-bullets__content" style="color: #969696; font-size: 16px;">help@banasell.gq</td>
+																<td class="info-bullets__content" style="color: #969696; font-size: 16px;">help@ogiebooks.gq</td>
 															</tr>
 														</table>
 													</td>
@@ -520,7 +520,7 @@ function send_verification_mail($to, $key)
 											<table class="container" border="0" cellpadding="0" cellspacing="0" width="620" align="center" style="border-top: 1px solid #eeeeee; width: 620px;">
 												<tr>
 													<td style="text-align: center; padding: 50px 0 10px 0;">
-														<a href="#" style="font-size: 28px; text-decoration: none; color: #d5d5d5;">Banasell</a>
+														<a href="#" style="font-size: 28px; text-decoration: none; color: #d5d5d5;">Ogiebooks</a>
 													</td>
 												</tr>
 
@@ -535,7 +535,7 @@ function send_verification_mail($to, $key)
 												</tr>
 
 												<tr>
-													<td style="color: #d5d5d5; text-align: center; font-size: 15px; padding: 10px 0 60px 0; line-height: 22px;">Copyright &copy; 2017 <a href="http://slicejack.com/" target="_blank" style="text-decoration: none; border-bottom: 1px solid #d5d5d5; color: #d5d5d5;">Banasell</a>. <br />A 2nd hand book selling website made by STTSS students, for STTSS students <br />All rights reserved.</td>
+													<td style="color: #d5d5d5; text-align: center; font-size: 15px; padding: 10px 0 60px 0; line-height: 22px;">Copyright &copy; 2017 <a href="http://slicejack.com/" target="_blank" style="text-decoration: none; border-bottom: 1px solid #d5d5d5; color: #d5d5d5;">Ogiebooks</a>. <br />A 2nd hand book selling website made by STTSS students, for STTSS students <br />All rights reserved.</td>
 												</tr>
 											</table>
 										</td>
@@ -580,13 +580,13 @@ function send_verification_change_mail($to, $key2, $id)
 	$mail->Port = 587;
 	
 	$mail->From = 'rhytion.my@gmail.com';
-	$mail->FromName = 'BanaSell';
+	$mail->FromName = 'Ogiebooks';
 	$mail->addAddress($to);
 	$mail->addReplyTo('lokjianming@gmail.com', 'Reply');
 	
 	$mail->isHTML(true);
 	
-	$mail->Subject = 'BanaSell: Email Change Verification';
+	$mail->Subject = 'Ogiebooks: Email Change Verification';
 	$link = 'http://localhost/login/changeemail.php?email='.$to.'&key='.$key2.'&id='.$id;
 	$mail->Body    = "Thank you for signing up.<br> Please verify your email by clicking the below link. <br><i>". $link."</i>";
 	

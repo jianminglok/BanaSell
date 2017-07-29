@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html style="height:100%; ">
 <head>
-	<title>BanaSell - <?php if(isset($_SESSION['message'], $_SESSION['activity'], $_SESSION['redirect'])) { echo $_SESSION['activity']; } else { echo 'Error 404'; } ?></title>
+	<title>Ogiebooks - <?php if(isset($_SESSION['message'], $_SESSION['activity'], $_SESSION['redirect'])) { echo $_SESSION['activity']; } else { echo 'Error 404'; } ?></title>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
         background-repeat: no-repeat;

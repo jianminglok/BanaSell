@@ -69,7 +69,7 @@ $result = mysqli_query($con, "SELECT * FROM books WHERE `title` LIKE '%".$query.
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Search</title>
+	<title>Ogiebooks - Search</title>
 	
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;

@@ -7,7 +7,7 @@ include_once 'dbconnect.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell</title>
+	<title>Ogiebooks</title>
 </head>
 <body>
 

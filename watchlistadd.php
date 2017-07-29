@@ -219,7 +219,7 @@ if(empty($_POST['1']) && empty($_POST['2']) && empty($_POST['3']) && empty($_POS
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Filter Books</title>
+	<title>Ogiebooks - Filter Books</title>
 	
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;

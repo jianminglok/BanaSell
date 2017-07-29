@@ -120,7 +120,7 @@ if(mysqli_num_rows($result) > 0) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Filter Books</title>
+	<title>Ogiebooks - Filter Books</title>
 	
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;

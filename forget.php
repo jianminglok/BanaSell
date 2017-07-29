@@ -54,7 +54,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html style="height:100%; ">
 <head>
-	<title>BanaSell - Reset Password</title>
+	<title>Ogiebooks - Reset Password</title>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
         background-repeat: no-repeat;

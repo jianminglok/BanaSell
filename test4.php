@@ -6,7 +6,7 @@ include_once 'dbconnect.php';
 <html>
 <head>
 	
-	<title>BanaSell</title>
+	<title>Ogiebooks</title>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
         background-repeat: no-repeat;

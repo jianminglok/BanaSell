@@ -104,7 +104,7 @@ if (isset($_POST['signup'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Watchlist</title>
+	<title>Ogiebooks - Settings</title>
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;

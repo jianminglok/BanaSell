@@ -101,7 +101,7 @@ if (isset($_POST['signup'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BanaSell - Post an Ad</title>
+	<title>Ogiebooks - Post an Ad</title>
 	
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;

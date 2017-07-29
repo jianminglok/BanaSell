@@ -76,7 +76,7 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html style="height:100%; ">
 <head>
-	<title>BanaSell - Sign In</title>
+	<title>Ogiebooks - Sign In</title>
   <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
