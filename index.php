@@ -60,6 +60,8 @@ $key2 = $row['key'];
 
   $result2 = mysqli_query($con, "SELECT * FROM path_keys WHERE `key` = '".$key2."'"); $i=0;
 
+  $row2 = mysqli_fetch_array($result2)
+
   /* Select fist image in future */
   
    ?>
