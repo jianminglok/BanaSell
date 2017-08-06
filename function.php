@@ -311,17 +311,17 @@ function send_verification_mail($to, $key)
 	$mail = new PHPMailer;
 	
 	$mail->isSMTP();
-	$mail->Host = 'smtp.gmail.com';
+	$mail->Host = 'smtp.yandex.ru';
 	$mail->SMTPAuth = true;
-	$mail->Username = 'rhytion.my@gmail.com';
+	$mail->Username = 'admin@ogiebooks.gq';
 	$mail->Password = 'outlook.com';
-	$mail->SMTPSecure = 'tls';
-	$mail->Port = 587;
+	$mail->SMTPSecure = 'ssl';
+	$mail->Port = 465;
 	
-	$mail->From = 'rhytion.my@gmail.com';
+	$mail->From = 'admin@ogiebooks.gq';
 	$mail->FromName = 'Ogiebooks';
 	$mail->addAddress($to);
-	$mail->addReplyTo('lokjianming@gmail.com', 'Reply');
+	$mail->addReplyTo('admin@ogiebooks.gq', 'Reply');
 	
 	$mail->isHTML(true);
 	
