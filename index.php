@@ -60,8 +60,6 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
 
   /* Select fist image in future */
   
-?>
-  
    ?>
          <form class=" mdl-cell--4-col test1 mdl-cell--4-col-tablet mdl-cell--4-col-phone" method="POST" action="test4.php" style="display:flex; flex-flow: row wrap;">
          
