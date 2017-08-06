@@ -57,8 +57,9 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
 <?php  while($row = mysqli_fetch_array($result)) { 
   
   $result2 = mysqli_query($con, "SELECT * FROM path_keys WHERE `key` = '".$row['key']."'"); $i=0;
-  while($row2 = mysqli_fetch_array($result2)) {
-	$i++;
+
+  /* Select fist image in future */
+  
 ?>
   
    ?>
