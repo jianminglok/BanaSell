@@ -56,7 +56,7 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
 
 <?php  while($row = mysqli_fetch_array($result)) { 
   
-  $result2 = mysqli_query($con, "SELECT * FROM path_keys WHERE `key` = '".$row['key']."'"); $i=0;
+  $result2 = mysqli_query($con, "SELECT * FROM path_keys WHERE `key` = '".$row['key']."'" AND `path` LIKE '0.'); $i=0;
 
   /* Select fist image in future */
   
