@@ -58,7 +58,7 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
          
             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp" style="width: 100%;">
               <div class="mdl-card__media" style="height: 200px; background-color: #f0eded; position: relative;">
-                <img src="<?php echo $_SERVER['REQUEST_URI'].$row['key'].'/0.'?>">
+                <img src="<?php echo $row['key'].'/0.'?>">
               </div>
               <div class="mdl-card__title">
                  <h4 class="mdl-card__title-text"><?php echo $row['title'];  ?></h4>
