@@ -60,7 +60,7 @@ function send_mail($to, $token)
 	$mail->isHTML(true);
 	
 	$mail->Subject = 'Ogiebooks: Password Recovery Instruction';
-	$link = 'http://localhost/forget.php?email='.$to.'&token='.$token;
+	$link = 'http://ogiebooks.gq/forget.php?email='.$to.'&token='.$token;
 //Body of the mail
             $mail->Body = <<< EOF
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -119,12 +119,12 @@ function send_mail($to, $token)
 														<table class="container" border="0" cellpadding="0" cellspacing="0">
 															<tr>
 																<td class="cta-block__button" width="230" align="center" style="width: 200px;">
-																	<a href="http://localhost/forget.php?email=$to&token=$token" style="border: 3px solid #eeeeee; color: #969696; text-decoration: none; padding: 15px 45px; text-transform: uppercase; display: block; text-align: center; font-size: 16px;">Reset Password</a>
+																	<a href="http://ogiebooks.gq/forget.php?email=$to&token=$token" style="border: 3px solid #eeeeee; color: #969696; text-decoration: none; padding: 15px 45px; text-transform: uppercase; display: block; text-align: center; font-size: 16px;">Reset Password</a>
 																</td>
 															</tr>
                               
                          <tr>
-													<td class="cta-block__content" style="padding: 20px 0 27px 0; font-size: 16px; line-height: 27px; color: #969696; text-align: center;">Just in case it doesn't work, here's the same link so you could copy and paste it into your browser. <br /><br /><a href="http://localhost/forget.php?email=$to&token=$token">http://localhost/forget.php?email=$to&token=$token</a></td>
+													<td class="cta-block__content" style="padding: 20px 0 27px 0; font-size: 16px; line-height: 27px; color: #969696; text-align: center;">Just in case it doesn't work, here's the same link so you could copy and paste it into your browser. <br /><br /><a href="http://ogiebooks.gq/forget.php?email=$to&token=$token">http://ogiebooks.gq/forget.php?email=$to&token=$token</a></td>
 												</tr>
 														</table>
 													</td>
@@ -385,12 +385,12 @@ function send_verification_mail($to, $key)
 														<table class="container" border="0" cellpadding="0" cellspacing="0">
 															<tr>
 																<td class="cta-block__button" width="230" align="center" style="width: 200px;">
-																	<a href="http://localhost/confirm.php?key=$key" style="border: 3px solid #eeeeee; color: #969696; text-decoration: none; padding: 15px 45px; text-transform: uppercase; display: block; text-align: center; font-size: 16px;">Activate Account</a>
+																	<a href="http://ogiebooks.gq/confirm.php?key=$key" style="border: 3px solid #eeeeee; color: #969696; text-decoration: none; padding: 15px 45px; text-transform: uppercase; display: block; text-align: center; font-size: 16px;">Activate Account</a>
 																</td>
 															</tr>
                               
                          <tr>
-													<td class="cta-block__content" style="padding: 20px 0 27px 0; font-size: 16px; line-height: 27px; color: #969696; text-align: center;">Just in case it doesn't work, here's the same link so you could copy and paste it into your browser. <br /><br /><a href="http://localhost/confirm.php?key=$key">http://localhost/confirm.php?key=$key</a></td>
+													<td class="cta-block__content" style="padding: 20px 0 27px 0; font-size: 16px; line-height: 27px; color: #969696; text-align: center;">Just in case it doesn't work, here's the same link so you could copy and paste it into your browser. <br /><br /><a href="http://ogiebooks.gq/confirm.php?key=$key">http://ogiebooks.gq/confirm.php?key=$key</a></td>
 												</tr>
 														</table>
 													</td>
@@ -587,7 +587,7 @@ function send_verification_change_mail($to, $key2, $id)
 	$mail->isHTML(true);
 	
 	$mail->Subject = 'Ogiebooks: Email Change Verification';
-	$link = 'http://localhost/login/changeemail.php?email='.$to.'&key='.$key2.'&id='.$id;
+	$link = 'http://ogiebooks.gq/login/changeemail.php?email='.$to.'&key='.$key2.'&id='.$id;
 	$mail->Body    = "Thank you for signing up.<br> Please verify your email by clicking the below link. <br><i>". $link."</i>";
 	
 	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
