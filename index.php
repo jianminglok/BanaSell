@@ -30,6 +30,7 @@ include_once 'dbconnect.php';
 $result=0;
 $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 1) DESC, `id` DESC LIMIT 3");
 
+
 ?>
 
  <div class="banasell-content mdl-layout__content">
@@ -53,12 +54,19 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
     <div class="banasell-section-title mdl-typography--display-1-color-contrast">Newest ads</div>
           <div class="banasell-card-container mdl-grid">
 
-<?php  while($row = mysqli_fetch_array($result)) {  ?>
+<?php  while($row = mysqli_fetch_array($result)) { 
+  
+  $result2 = mysqli_query($con, "SELECT * FROM path_keys WHERE `key` = '".$row['key']."'"); $i=0;
+  while($row2 = mysqli_fetch_array($result2)) {
+	$i++;
+?>
+  
+   ?>
          <form class=" mdl-cell--4-col test1 mdl-cell--4-col-tablet mdl-cell--4-col-phone" method="POST" action="test4.php" style="display:flex; flex-flow: row wrap;">
          
             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp" style="width: 100%;">
               <div class="mdl-card__media" style="height: 200px; background-color: #f0eded; position: relative;">
-                <img src="<?php echo $row['key'].'/0.'?>">
+                <img src="<?php echo $row2['path']?>">
               </div>
               <div class="mdl-card__title">
                  <h4 class="mdl-card__title-text"><?php echo $row['title'];  ?></h4>
