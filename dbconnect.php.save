@@ -1,0 +1,5 @@
+<?php
+//connect to mysql database
+$con = mysqli_connect("localhost", "root", "0g!ebook$
+", "testdb") or die("Error " . mysqli_error($con));
+?>

@@ -78,7 +78,7 @@ $result = mysqli_query($con, "SELECT * FROM books WHERE `title` LIKE '%".$query.
 
 <?php $page = 'search.php'; include('nav.php'); ?>
 
-<div class="banasell-content mdl-layout__content">
+<div class="ogiebooks-content mdl-layout__content">
 <div style="padding-top: 3em">
 <!-- Square card -->
 <style>
@@ -155,9 +155,9 @@ $result = mysqli_query($con, "SELECT * FROM books WHERE `title` LIKE '%".$query.
 
 
 
-<div class="banasell-more-section">
+<div class="ogiebooks-more-section">
     <a name="ads"></a>
-          <div class="banasell-card-container mdl-grid">
+          <div class="ogiebooks-card-container mdl-grid">
 
 <?php while($row = mysqli_fetch_array($result)) {  ?>
          

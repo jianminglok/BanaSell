@@ -48,7 +48,7 @@ function send_mail($to, $token)
 	$mail->Host = 'smtp.gmail.com';
 	$mail->SMTPAuth = true;
 	$mail->Username = 'rhytion.my@gmail.com';
-	$mail->Password = 'outlook.com';
+	$mail->Password = 'Cisco.live_com!12';
 	$mail->SMTPSecure = 'tls';
 	$mail->Port = 587;
 	

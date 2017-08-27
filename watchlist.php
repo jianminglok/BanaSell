@@ -38,10 +38,10 @@ $_SESSION['testsubject'] = $_POST['test'];
 
 
  } else {  $check = mysqli_query($con, "SELECT * FROM watchlist_keys where `usr_id` = '" . $usr_id . "'"); ?>
-<div class="banasell-more-section">
+<div class="ogiebooks-more-section">
     <a name="ads"></a>
-    <div class="banasell-section-title mdl-typography--display-1" style="color:white">Watchlist</div>
-          <div class="banasell-card-container mdl-grid">
+    <div class="ogiebooks-section-title mdl-typography--display-1" style="color:white">Watchlist</div>
+          <div class="ogiebooks-card-container mdl-grid">
 
  
 

@@ -167,7 +167,7 @@ if(mysqli_num_rows($result) > 0) {
 				left: 49.7%;	
 				transform: translate(-49.8%);
 			}
-		.banasell-card-container .mdl-card__supporting-text {
+		.ogiebooks-card-container .mdl-card__supporting-text {
 			padding-bottom: 4px;
 		}
 		.mdl-card__supporting-text {
@@ -269,7 +269,7 @@ if(mysqli_num_rows($result) > 0) {
 </div>
 </div>
 
-			<div class="banasell-more-section senior1"><div class="banasell-card-container mdl-grid">
+			<div class="ogiebooks-more-section senior1"><div class="ogiebooks-card-container mdl-grid">
 			<div class="demo-card-wide mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp card1">
         <div class="mdl-card__title">
 					<h2 class="mdl-card__title-text">Chinese</h2>

@@ -1,9 +1,10 @@
 <head>
+    <link rel="icon" href="img/ogiebooks.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Introducing Lollipop, a sweet new take on ogiebooks.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Ogiebooks</title>
+    <title>ogiebooks</title>
 
     <!-- Page styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
@@ -22,11 +23,11 @@
       margin-bottom: 40px;
       z-index: 900;
     }
-    _:-moz-tree-row(hover), .banasell-search-box {
+    _:-moz-tree-row(hover), .ogiebooks-search-box {
         top: 4px;
     }  
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
-     .banasell-search-box {
+     .ogiebooks-search-box {
         top: 3.5px;
     }
     }
@@ -99,14 +100,16 @@ if (isset($_SESSION['previous4'])) {
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
 
-      <div class="banasell-header mdl-layout__header">
+      <div class="ogiebooks-header mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <span class="banasell-title mdl-layout-title">
-            <img class="banasell-logo-image" src="icon/banasell.png">
+          <span class="ogiebooks-title mdl-layout-title">
+            <a href="index.php">
+				<img class="ogiebooks-logo-image" src="icon/ogiebooks.png">
+			</a>
           </span>
           <!-- Add spacer, to align navigation to the right in desktop -->
-          <div class="banasell-header-spacer mdl-layout-spacer"></div>
-          <div class="banasell-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+          <div class="ogiebooks-header-spacer mdl-layout-spacer"></div>
+          <div class="ogiebooks-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
             <form action="search.php" method="GET">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
               <i class="material-icons">search</i>
@@ -117,8 +120,8 @@ if (isset($_SESSION['previous4'])) {
             </form>
           </div>
           <!-- Navigation -->
-          <div class="banasell-navigation-container">
-            <nav class="banasell-navigation mdl-navigation">
+          <div class="ogiebooks-navigation-container">
+            <nav class="ogiebooks-navigation mdl-navigation">
               <a <?php echo ($page == 'index.php') ? "class='mdl-navigation__link mdl-navigation__link-active mdl-typography--text-uppercase active' href='#'" : ""; ?> class="mdl-navigation__link mdl-typography--text-uppercase active" href="index.php">Home</a>
               <a <?php echo ($page == 'booklist.php') ? "class='mdl-navigation__link mdl-navigation__link-active mdl-typography--text-uppercase active' href='#'" : ""; ?> class="mdl-navigation__link mdl-typography--text-uppercase" href="booklist.php">Book List</a>
               <a <?php echo ($page == 'filterbooks.php' OR $page == 'filterresults.php') ? "class='mdl-navigation__link mdl-navigation__link-active mdl-typography--text-uppercase active' href='#'" : ""; ?> class="mdl-navigation__link mdl-typography--text-uppercase" href="filterbooks.php">Find Specific Book</a>
@@ -126,10 +129,10 @@ if (isset($_SESSION['previous4'])) {
               <a <?php echo ($page == 'selectbooks.php' OR $page == 'submitbooks.php') ? "class='mdl-navigation__link mdl-navigation__link-active mdl-typography--text-uppercase active' href='#'" : ""; ?> class="mdl-navigation__link mdl-typography--text-uppercase" href="selectbooks.php">Post An Ad</a>
             </nav>
           </div>
-          <span class="banasell-mobile-title mdl-layout-title">
-            <img class="banasell-logo-image" src="icon/banasell.png">
+          <span class="ogiebooks-mobile-title mdl-layout-title">
+            <img class="ogiebooks-logo-image" src="icon/ogiebooks.png">
           </span>
-          <button class="banasell-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+          <button class="ogiebooks-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
@@ -138,7 +141,7 @@ if (isset($_SESSION['previous4'])) {
             <li class="mdl-menu__item">Contact Us</li>
             <li <?php echo ($page == 'updateemail.php') ? "class='mdl-menu__item' onclick='#'" : ""; ?> class="mdl-menu__item" onclick="window.location='updateemail.php'">Update Email & Info</li>
           </ul>
-          <button class="banasell-account-button banasell-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="account-button" style=" display: block !important;">
+          <button class="ogiebooks-account-button ogiebooks-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="account-button" style=" display: block !important;">
             <?php if (isset($_SESSION['usr_id']) )  { ?>
             <i class="material-icons" style="color: green !important;">account_circle</i>
             <?php } else { ?>
@@ -150,10 +153,10 @@ if (isset($_SESSION['previous4'])) {
             <li disabled class="mdl-menu__item">Signed In as <?php echo $_SESSION['usr_name']; ?></li>
             <li class="mdl-menu__item" onclick="window.location='logout.php'">Sign Out</li>
           <?php } elseif($fn == 'login.php' AND $fn !== 'register.php' AND $fn !== 'dob.php') { ?>
-            <li <?php echo ($page == 'login.php') ? "class='mdl-menu__item' onclick='#'" : ""; ?> class="mdl-menu__item">Sign In</li>
+            <li <?php echo ($page == 'login.php') ? "class='mdl-menu__item' onclick='#'" : ""; ?> class="mdl-menu__item">Login</li>
             <li class="mdl-menu__item" onclick="window.location='dob.php'">Sign Up</li>
           <?php } else { ?>
-            <li class="mdl-menu__item" onclick="window.location='login.php'">Sign In</li>
+            <li class="mdl-menu__item" onclick="window.location='login.php'">Login</li>
             <li <?php echo ($page == 'register.php' OR $page == 'dob.php') ? "class='mdl-menu__item' onclick='#'" : ""; ?> class="mdl-menu__item" onclick="window.location='dob.php'">Sign Up</li>
           <?php } ?>
           </ul>
@@ -166,11 +169,11 @@ if (isset($_SESSION['previous4'])) {
     </div>
       </div>
 
-      <div class="banasell-drawer mdl-layout__drawer" >
+      <div class="ogiebooks-drawer mdl-layout__drawer" >
         <span class="mdl-layout-title"  style="line-height: 1em !important">
           <i class="material-icons" style="padding-top: 3em;">account_circle</i>
           <br></br>
-          <span><?php if(isset($_SESSION['usr_name'])) { echo $_SESSION['usr_name']; } else { echo 'Ogiebooks'; } ?></span>
+          <span><?php if(isset($_SESSION['usr_name'])) { echo $_SESSION['usr_name']; } else { echo 'Login'; } ?></span>
         </span>
         <nav class="mdl-navigation">
            <a <?php echo ($page == 'index.php') ? "class='mdl-navigation__link mdl-navigation__link-active' href='#'" : ""; ?> class="mdl-navigation__link" href="index.php">Home</a>
@@ -178,7 +181,7 @@ if (isset($_SESSION['previous4'])) {
           <a <?php echo ($page == 'filterbooks.php' OR $page == 'filterresults.php') ? "class='mdl-navigation__link mdl-navigation__link-active' href='#'" : ""; ?> class="mdl-navigation__link" href="filterbooks.php">Find Specific Book</a>
           <a <?php echo ($page == 'watchlist.php' OR $page == 'watchlistresults.php' OR $page == 'watchlistadd.php') ? "class='mdl-navigation__link mdl-navigation__link-active' href='#'" : ""; ?> class="mdl-navigation__link" href="watchlist.php">Watchlist</a>
           <a <?php echo ($page == 'selectbooks.php' OR $page == 'submitbooks.php') ? "class='mdl-navigation__link mdl-navigation__link-active' href='#'" : ""; ?> class="mdl-navigation__link" href="selectbooks.php">Post an Ad</a>
-          <div class="banasell-drawer-separator"></div>
+          <div class="ogiebooks-drawer-separator"></div>
           <span class="mdl-navigation__link" href="">More</span>
           <a class="mdl-navigation__link" href="">About Us</a>
           <a class="mdl-navigation__link" href="">FAQ</a>

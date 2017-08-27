@@ -74,7 +74,7 @@ if(!empty($_POST['filter'])) {
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: left top; z-index: -1;">  
-<div class="banasell-content mdl-layout__content">
+<div class="ogiebooks-content mdl-layout__content">
 <div style="padding-top: 3em">
 <!-- Square card -->
 <style>
@@ -157,9 +157,9 @@ if(!empty($_POST['filter'])) {
 
 
 
-<div class="banasell-more-section">
+<div class="ogiebooks-more-section">
     <a name="ads"></a>
-          <div class="banasell-card-container mdl-grid">
+          <div class="ogiebooks-card-container mdl-grid">
 
 <?php  while($row = mysqli_fetch_array($result)) {  ?>
          

@@ -33,11 +33,11 @@ a img{
   color: #fff;
 }
 
-.banasell-search-box .mdl-textfield__input {
+.ogiebooks-search-box .mdl-textfield__input {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.banasell-header .mdl-menu__container {
+.ogiebooks-header .mdl-menu__container {
   z-index: 50;
   margin: 0 !important;
 }
@@ -47,7 +47,7 @@ a img{
   width: auto;
 }
 
-.banasell-fab {
+.ogiebooks-fab {
   position: absolute;
   right: 20%;
   bottom: -26px;
@@ -56,28 +56,28 @@ a img{
   color: black !important;
 }
 
-.banasell-mobile-title {
+.ogiebooks-mobile-title {
   display: none !important;
 }
 
 
-.banasell-logo-image {
+.ogiebooks-logo-image {
   height: 46.42px;
   width: 58.14px;
 }
 
 
-.banasell-header {
+.ogiebooks-header {
   overflow: visible;
   background-color: white;
 }
 
-  .banasell-header .material-icons {   
+  .ogiebooks-header .material-icons {   
     color: #767777 !important;    
   }
 
 
-  .banasell-header .mdl-layout__drawer-button {
+  .ogiebooks-header .mdl-layout__drawer-button {
     background: transparent;
     color: #767777;
   }
@@ -104,13 +104,13 @@ a img{
     font-weight: 700;
   }
 
-  .banasell-header .mdl-navigation__link {
+  .ogiebooks-header .mdl-navigation__link {
     color: #757575;
     font-weight: 700;
     font-size: 14px;
   }
 
-  .banasell-navigation-container {
+  .ogiebooks-navigation-container {
     /* Simple hack to make the overflow happen to the left instead... */
     direction: rtl;
     -webkit-order: 1;
@@ -121,7 +121,7 @@ a img{
         width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .banasell-navigation {
+  .ogiebooks-navigation {
     /* ... and now make sure the content is actually LTR */
     direction: ltr;
     -webkit-justify-content: flex-end;
@@ -130,13 +130,13 @@ a img{
     width: 800px;
   }
 
-  .banasell-search-box.is-focused + .banasell-navigation-container {
+  .ogiebooks-search-box.is-focused + .ogiebooks-navigation-container {
     opacity: 0;
     width: 100px;
   }
 
 
-  .banasell-navigation .mdl-navigation__link {
+  .ogiebooks-navigation .mdl-navigation__link {
     display: inline-block;
     height: 60px;
     line-height: 68px;
@@ -144,15 +144,15 @@ a img{
     border-bottom: 4px solid transparent;
   }
 
-    .banasell-navigation .mdl-navigation__link:hover {
+    .ogiebooks-navigation .mdl-navigation__link:hover {
       border-bottom: 4px solid #da4932;
     }
 
-    .banasell-navigation .mdl-navigation__link-active {
+    .ogiebooks-navigation .mdl-navigation__link-active {
       border-bottom: 4px solid #da4932;
     }
 
-  .banasell-search-box {
+  .ogiebooks-search-box {
     -webkit-order: 2;
         -ms-flex-order: 2;
             order: 2;
@@ -160,46 +160,46 @@ a img{
     margin-right: 16px;
   }
 
-  .banasell-more-button {
+  .ogiebooks-more-button {
     -webkit-order: 3;
         -ms-flex-order: 3;
             order: 3;
     bottom: 1px;
   }
 
-  .banasell-account-button {
+  .ogiebooks-account-button {
     margin-left: 0.5em;
     
   }
 
 
-.banasell-drawer {
+.ogiebooks-drawer {
   border-right: none;
 }
 
-  .banasell-drawer-separator {
+  .ogiebooks-drawer-separator {
     height: 1px;
     background-color: #dcdcdc;
     margin: 8px 0;
   }
 
-  .banasell-drawer .mdl-navigation__link.mdl-navigation__link {
+  .ogiebooks-drawer .mdl-navigation__link.mdl-navigation__link {
     font-size: 14px;
     color: #757575;
   }
 
-  .banasell-drawer span.mdl-navigation__link.mdl-navigation__link {
+  .ogiebooks-drawer span.mdl-navigation__link.mdl-navigation__link {
     color: #8bc34a;
   }
 
-  .banasell-drawer .mdl-layout-title {
+  .ogiebooks-drawer .mdl-layout-title {
    
     background-color: #da4932 !important;
     height: 160px;
     color: #fff;
   }
 
-    .banasell-drawer .banasell-logo-image {
+    .ogiebooks-drawer .ogiebooks-logo-image {
       position: absolute;
       height: 60px;
       width: 130.68px;
@@ -221,138 +221,138 @@ a img{
   font-weight: 500;
 }
 
-.banasell-slogan {
+.ogiebooks-slogan {
   font-size: 60px;
   padding-top: 125px;
 }
 
-.banasell-sub-slogan {
+.ogiebooks-sub-slogan {
   font-size: 21px;
   padding-top: 24px;
 }
 
-.banasell-create-character {
+.ogiebooks-create-character {
   font-size: 21px;
   padding-top: 100px;
 }
 
-  .banasell-create-character a {
+  .ogiebooks-create-character a {
     text-decoration: none;
     color: #fff;
     font-weight: 300;
   }
 
-  .banasell-create-character a:hover {
+  .ogiebooks-create-character a:hover {
     text-decoration: none;
     color: #e5e5e5;
     font-weight: 300;
   }
 
-  .banasell-create-character i {
+  .ogiebooks-create-character i {
     vertical-align: middle;
   }
 
-.banasell-screen-section {
+.ogiebooks-screen-section {
   position: relative;
   padding-top: 60px;
   padding-bottom: 80px;
 }
 
-.banasell-screens {
+.ogiebooks-screens {
   text-align: right;
   width: 100%;
   white-space: nowrap;
   overflow-x: auto;
 }
 
-.banasell-screen {
+.ogiebooks-screen {
   text-align: center;
 }
 
-.banasell-screen .banasell-link {
+.ogiebooks-screen .ogiebooks-link {
   margin-top: 16px;
   display: block;
   z-index: 2;
 }
 
-.banasell-image-link {
+.ogiebooks-image-link {
   text-decoration: none;
 }
 
-.banasell-wear {
+.ogiebooks-wear {
   display: inline-block;
   width: 160px;
   margin-right: 32px;
 }
 
-  .banasell-wear .banasell-screen-image {
+  .ogiebooks-wear .ogiebooks-screen-image {
     width: 40%;
     z-index: 1;
   }
 
 
-.banasell-phone {
+.ogiebooks-phone {
   display: inline-block;
   width: 64px;
   margin-right: 48px;
 }
 
-  .banasell-phone .banasell-screen-image {
+  .ogiebooks-phone .ogiebooks-screen-image {
     width: 100%;
     z-index: 1;
   }
 
 
-.banasell-tablet {
+.ogiebooks-tablet {
   display: inline-block;
   width: 110px;
   margin-right: 64px;
 }
 
-  .banasell-tablet .banasell-screen-image {
+  .ogiebooks-tablet .ogiebooks-screen-image {
     width: 100%;
     z-index: 1;
   }
 
-  .banasell-tablet .banasell-link {
+  .ogiebooks-tablet .ogiebooks-link {
     display: block;
     z-index: 2;
   }
 
 
-.banasell-tv {
+.ogiebooks-tv {
   display: inline-block;
   width: 300px;
   margin-right: 80px;
 }
 
-  .banasell-tv .banasell-screen-image {
+  .ogiebooks-tv .ogiebooks-screen-image {
     width: 100%;
     z-index: 1;
   }
 
 
-.banasell-auto {
+.ogiebooks-auto {
   display: inline-block;
   width: 300px;
   overflow: hidden;
 }
 
-  .banasell-auto .banasell-screen-image {
+  .ogiebooks-auto .ogiebooks-screen-image {
     display: block;
     height: 300px;
     z-index: 1;
   }
 
 
-.banasell-wear-section {
+.ogiebooks-wear-section {
   position: relative;
   background: url('../images/wear.png') center top no-repeat;
   background-size: cover;
   height: 800px;
 }
 
-.banasell-wear-band {
+.ogiebooks-wear-band {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -360,7 +360,7 @@ a img{
   background-color: #37474f;
 }
 
-.banasell-wear-band-text {
+.ogiebooks-wear-band-text {
   max-width: 800px;
   margin-left: 25%;
   padding: 24px;
@@ -368,163 +368,163 @@ a img{
   color: white;
 }
 
-  .banasell-wear-band-text p {
+  .ogiebooks-wear-band-text p {
     padding-top: 8px;
   }
 
-.banasell-link {
+.ogiebooks-link {
   text-decoration: none;
   color: #8bc34a !important;
 }
 
-  .banasell-link:hover {
+  .ogiebooks-link:hover {
     color: #7cb342 !important;
   }
 
-  .banasell-link .material-icons {
+  .ogiebooks-link .material-icons {
     position: relative;
     top: -1px;
     vertical-align: middle;
   }
 
-.banasell-alt-link {
+.ogiebooks-alt-link {
   text-decoration: none;
   color: #64ffda !important;
   font-size: 16px;
 }
 
-  .banasell-alt-link:hover {
+  .ogiebooks-alt-link:hover {
     color: #00bfa5 !important;
   }
 
-  .banasell-alt-link .material-icons {
+  .ogiebooks-alt-link .material-icons {
     position: relative;
     top: 6px;
   }
 
-.banasell-customized-section {
+.ogiebooks-customized-section {
   text-align: center;
 }
 
-.banasell-customized-section-text {
+.ogiebooks-customized-section-text {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
   padding: 80px 16px 0 16px;
 }
 
-  .banasell-customized-section-text p {
+  .ogiebooks-customized-section-text p {
     padding-top: 16px;
   }
 
-.banasell-customized-section-image {
+.ogiebooks-customized-section-image {
   background: url('../images/devices.jpg') center top no-repeat;
   background-size: cover;
   height: 400px;
 }
 
-.banasell-more-section {
+.ogiebooks-more-section {
   padding: 80px 0;
   max-width: 1044px;
   margin-left: auto;
   margin-right: auto;
 }
 
-  .banasell-more-section .banasell-section-title {
+  .ogiebooks-more-section .ogiebooks-section-title {
     margin-left: 12px;
     padding-bottom: 24px;
   }
 
-.banasell-card-container {
+.ogiebooks-card-container {
 }
 
-  .banasell-card-container .mdl-card__media {
+  .ogiebooks-card-container .mdl-card__media {
     overflow: hidden;
     background: transparent;
   }
 
-    .banasell-card-container .mdl-card__media img {
+    .ogiebooks-card-container .mdl-card__media img {
       width: 100%;
     }
 
-  .banasell-card-container .mdl-card__title {
+  .ogiebooks-card-container .mdl-card__title {
     background: transparent;
     height: auto;
   }
 
-  .banasell-card-container .mdl-card__title-text {
+  .ogiebooks-card-container .mdl-card__title-text {
     color: black;
     height: auto;
   }
 
-  .banasell-card-container .mdl-card__supporting-text {
+  .ogiebooks-card-container .mdl-card__supporting-text {
     height: auto;
     color: black;
     padding-bottom: 56px;
   }
 
-  .banasell-card-container .mdl-card__actions {
+  .ogiebooks-card-container .mdl-card__actions {
     position: absolute;
     bottom: 0;
   }
 
-  .banasell-card-container .mdl-card__actions a {
+  .ogiebooks-card-container .mdl-card__actions a {
     border-top: none;
     font-size: 16px;
   }
 
-.banasell-footer {
+.ogiebooks-footer {
   background-color: #fafafa;
   position: relative;
 }
 
-  .banasell-footer a:hover {
+  .ogiebooks-footer a:hover {
     color: #8bc34a;
   }
 
-  .banasell-footer .mdl-mega-footer--top-section::after {
+  .ogiebooks-footer .mdl-mega-footer--top-section::after {
     border-bottom: none;
   }
 
-  .banasell-footer .mdl-mega-footer--middle-section::after {
+  .ogiebooks-footer .mdl-mega-footer--middle-section::after {
     border-bottom: none;
   }
 
-  .banasell-footer .mdl-mega-footer--bottom-section {
+  .ogiebooks-footer .mdl-mega-footer--bottom-section {
     position: relative;
   }
 
-  .banasell-footer .mdl-mega-footer--bottom-section a {
+  .ogiebooks-footer .mdl-mega-footer--bottom-section a {
     margin-right: 2em;
   }
 
-  .banasell-footer .mdl-mega-footer--right-section a .material-icons {
+  .ogiebooks-footer .mdl-mega-footer--right-section a .material-icons {
     position: relative;
     top: 6px;
   }
 
 
-.banasell-link-menu:hover {
+.ogiebooks-link-menu:hover {
   cursor: pointer;
 }
 
 
 /**** Mobile layout ****/
 @media (max-width: 900px) {
-  .banasell-navigation-container {
+  .ogiebooks-navigation-container {
     display: none;
   }
 
-  .banasell-more-section2 {
+  .ogiebooks-more-section2 {
     margin-top: 0em;
     padding-bottom: 4em;
   }
 
-  .banasell-title {
+  .ogiebooks-title {
     display: none !important;
   }
 
-  .banasell-mobile-title {
+  .ogiebooks-mobile-title {
     display: block !important;
     position: absolute;
     left: calc(50% - 50px);
@@ -535,25 +535,25 @@ a img{
   /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
      consecutive "+" operators in some cases. Therefore, we need to use both
      here to cover all the bases. */
-  .banasell.banasell-search-box.is-focused ~ .banasell-mobile-title,
-  .banasell-search-box.is-focused + .banasell-navigation-container + .banasell-mobile-title {
+  .ogiebooks.ogiebooks-search-box.is-focused ~ .ogiebooks-mobile-title,
+  .ogiebooks-search-box.is-focused + .ogiebooks-navigation-container + .ogiebooks-mobile-title {
     opacity: 0;
   }
 
-  .banasell-more-button {
+  .ogiebooks-more-button {
     display: none;
   }
 
-  .banasell-account-button {
+  .ogiebooks-account-button {
     margin-left: 0.1em;
     bottom: 2px;
   }
 
-  .banasell-search-box.is-focused {
+  .ogiebooks-search-box.is-focused {
     width: calc(100% - 90px);
   }
 
-  .banasell-search-box .mdl-textfield__expandable-holder {
+  .ogiebooks-search-box .mdl-textfield__expandable-holder {
     width: 100%;
   }
 
@@ -561,49 +561,49 @@ a img{
     height: 300px;
   }
 
-  .banasell-slogan {
+  .ogiebooks-slogan {
     font-size: 26px;
     margin: 0 16px;
     padding-top: 48px;
   }
 
-  .banasell-sub-slogan {
+  .ogiebooks-sub-slogan {
     font-size: 16px;
     margin: 0 16px;
     padding-top: 8px;
   }
 
-  .banasell-create-character {
+  .ogiebooks-create-character {
     padding-top: 120px;
     font-size: 16px;
   }
 
-  .banasell-create-character a {
+  .ogiebooks-create-character a {
     text-decoration: none;
     color: #e5e5e5;
     font-weight: 300;
   }
 
-  .banasell-create-character a:hover {
+  .ogiebooks-create-character a:hover {
     text-decoration: none;
     color: #e5e5e5;
     font-weight: 300;
   }
 
-  .banasell-create-character i {
+  .ogiebooks-create-character i {
     vertical-align: middle;
   }
 
-  .banasell-fab {
+  .ogiebooks-fab {
     display: none;
   }
 
-  .banasell-wear-band-text {
+  .ogiebooks-wear-band-text {
     margin-left: 0;
     padding: 16px;
   }
 
-  .banasell-footer .mdl-mega-footer--bottom-section {
+  .ogiebooks-footer .mdl-mega-footer--bottom-section {
     display: none;
   }
 }

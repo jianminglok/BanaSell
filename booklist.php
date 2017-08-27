@@ -112,7 +112,7 @@ if(!empty($_POST['form']) && !empty($_POST['filter'])) {
         background-repeat: no-repeat;
         background-position: left top; z-index: -1;">  
 
-<div class="banasell-content mdl-layout__content" style="position: relative;">
+<div class="ogiebooks-content mdl-layout__content" style="position: relative;">
 
 <div style="padding-top: 3em">
 <!-- Square card -->
@@ -213,9 +213,9 @@ if(!empty($_POST['form']) && !empty($_POST['filter'])) {
 
 
 
-<div class="banasell-more-section">
+<div class="ogiebooks-more-section">
     <a name="ads"></a>
-          <div class="banasell-card-container mdl-grid">
+          <div class="ogiebooks-card-container mdl-grid">
 
 <?php   while($row = mysqli_fetch_array($result)) {  ?>
          <form class=" mdl-cell--4-col test1 mdl-cell--4-col-tablet mdl-cell--4-col-phone" method="POST" action="test4.php" style="display:flex; flex-flow: row wrap;">

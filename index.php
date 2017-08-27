@@ -33,26 +33,26 @@ $result = mysqli_query($con,"SELECT * FROM books WHERE 1 ORDER BY FIELD(`paid`, 
 
 ?>
 
- <div class="banasell-content mdl-layout__content">
+ <div class="ogiebooks-content mdl-layout__content">
         <a name="top"></a>
         <div class="intro-section mdl-typography--text-center">
-          <div class="logo-font banasell-slogan">Ogiebooks</div>
-          <div class="logo-font banasell-sub-slogan">A 2nd hand book selling website made by STTSS students, for STTSS students</div>
-          <div class="logo-font banasell-create-character">
+          <div class="logo-font ogiebooks-slogan">Ogiebooks</div>
+          <div class="logo-font ogiebooks-sub-slogan">A 2nd hand book selling website made by STTSS students, for STTSS students</div>
+          <div class="logo-font ogiebooks-create-character">
             <a href=""><i class="material-icons">info_outline</i> Learn more about us</a>
           </div>
 
           <a href="#ads">
-            <button class="banasell-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+            <button class="ogiebooks-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
               <i class="material-icons">expand_more</i>
             </button>
           </a>
         </div>
 
-<div class="banasell-more-section">
+<div class="ogiebooks-more-section">
     <a name="ads"></a>
-    <div class="banasell-section-title mdl-typography--display-1-color-contrast">Newest ads</div>
-          <div class="banasell-card-container mdl-grid">
+    <div class="ogiebooks-section-title mdl-typography--display-1-color-contrast">Newest ads</div>
+          <div class="ogiebooks-card-container mdl-grid">
 
 <?php  while($row = mysqli_fetch_array($result)) { 
   
@@ -65,7 +65,7 @@ $key2 = $row['key'];
   /* Select fist image in future */
   
    ?>
-         <form class=" mdl-cell--4-col test1 mdl-cell--4-col-tablet mdl-cell--4-col-phone" method="POST" action="test4.php" style="display:flex; flex-flow: row wrap;">
+         <form class=" mdl-cell--4-col test1 mdl-cell--4-col-tablet mdl-cell--4-col-phone" method="POST" action="content.php" style="display:flex; flex-flow: row wrap;">
          
             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp" style="width: 100%;">
               <div class="mdl-card__media" style="height: 200px; background-color: #f0eded; position: relative;">
@@ -242,7 +242,7 @@ $key2 = $row['key'];
 
         	
 
-        <footer class="banasell-footer mdl-mega-footer">
+        <footer class="ogiebooks-footer mdl-mega-footer">
           <div class="mdl-mega-footer--top-section">
             <div class="mdl-mega-footer--left-section">
               <button class="mdl-mega-footer--social-btn"></button>
@@ -261,7 +261,7 @@ $key2 = $row['key'];
 
           Copyright <?php echo date('Y'); ?> Ogiebooks.
 
-          <a href="http://www.beyondsecurity.com/vulnerability-scanner-verification/banasell.gq"><img src="https://seal.beyondsecurity.com/verification-images/banasell.gq/vulnerability-scanner-2.gif" alt="Website Security Test" border="0" /></a>
+          <a href="http://www.beyondsecurity.com/vulnerability-scanner-verification/ogiebooks.gq"><img src="https://seal.beyondsecurity.com/verification-images/ogiebooks.gq/vulnerability-scanner-2.gif" alt="Website Security Test" border="0" /></a>
 
         </footer>
       </div>
