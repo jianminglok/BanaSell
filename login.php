@@ -43,8 +43,8 @@ if (isset($_POST['login'])) {
 	$result = mysqli_query($con, "SELECT * FROM users WHERE email = '" . $email. "' ");
 
 	if ($row = mysqli_fetch_array($result)) {
-    $banasell = md5('bxa11z8');
-    $password2 = trim($password) . $banasell;
+    $ogiebooks = md5('bxa11z8');
+    $password2 = trim($password) . $ogiebooks;
     if(password_verify($password2, $row['password'])) {
 		$_SESSION['usr_id'] = $row['id'];
 		$_SESSION['usr_name'] = $row['name'];
@@ -76,7 +76,7 @@ if (isset($_POST['login'])) {
 <!DOCTYPE html>
 <html style="height:100%; ">
 <head>
-	<title>Ogiebooks - Sign In</title>
+	<title>Ogiebooks - Login</title>
   <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body style="background-image: url('img/background.jpg'); height:100%; background-size: 100% 100%;
@@ -109,7 +109,7 @@ if (isset($_POST['login'])) {
     margin-left: auto;
     margin-right: auto;">
   <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Sign In</h2>
+    <h2 class="mdl-card__title-text">Login</h2>
   </div>
   <!-- MDL Progress Bar with Indeterminate Progress -->
   <div class="mdl-card__supporting-text" style="margin-left: 1em; margin-right: 1em; margin-top: 0.82em; margin-bottom: 1.5em;">
@@ -144,7 +144,7 @@ if (isset($_POST['login'])) {
     </div>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="stayloggedin">
       <input name="stayloggedin" type="checkbox" id="stayloggedin" class="mdl-checkbox__input" value="1">
-      <span class="mdl-checkbox__label">Stay signed in</span>
+      <span class="mdl-checkbox__label">Stay logged in</span>
     </label>
     
     <?php } ?>
@@ -157,7 +157,7 @@ if (isset($_POST['login'])) {
 
   <div class="mdl-card__actions mdl-card--border">
     <button name="login" type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 0.5em;">
-      Sign In
+      Login
     </button>
     <button onclick="window.location.href='reset.php'" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
       Need Help?

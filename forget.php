@@ -23,8 +23,8 @@ if(isset($_POST['submit']))
     
     if($new_password2 == $retype_password2)
     {
-        $banasell = md5('bxa11z8');
-		    $password3 = trim($new_password) . $banasell;
+        $ogiebooks = md5('bxa11z8');
+		    $password3 = trim($new_password) . $ogiebooks;
 		    $hashed = password_hash($password3, PASSWORD_BCRYPT, ["cost" => 16]);
         if(mysqli_query($con, "UPDATE users SET password = '$hashed' WHERE id = $userID")) {
                 if(mysqli_query($con, "UPDATE recovery_keys SET valid = 0 WHERE userID = $userID AND token ='$token'")) {

@@ -65,8 +65,8 @@ if (isset($_POST['signup'])) {
 	}
 
 	if (!$error) {
-		$banasell = md5('bxa11z8');
-		$password3 = trim($password) . $banasell;
+		$ogiebooks = md5('bxa11z8');
+		$password3 = trim($password) . $ogiebooks;
 		$hashed = password_hash($password3, PASSWORD_BCRYPT, ["cost" => 16]);
 		if(mysqli_query($con, "INSERT INTO users(name,email,password,dateofbirth,age,form) VALUES('" . $name . "', '" . $email . "', '" . $hashed . "', '" . $dbd . "', '" . $age . "', '" . $form . "')")) {
 
