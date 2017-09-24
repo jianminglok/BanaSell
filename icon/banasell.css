@@ -1,0 +1,19 @@
+@charset "utf-8";
+	.NormalCharacterStyle1
+{
+	font-family : MS Reference Sans Serif;
+	font-size : 128px;
+	color : #FFFF00;
+	color : rgb(255, 255, 0);
+	text-outline : #FCEE21;
+	text-outline : rgb(252, 238, 33);
+}
+.NormalCharacterStyle
+{
+	font-family : Microsoft PhagsPa;
+	font-size : 183px;
+	color : #FF0000;
+	color : rgb(255, 0, 0);
+	text-outline : #FF0000;
+	text-outline : rgb(255, 0, 0);
+}
