@@ -2,7 +2,7 @@
 
 	include_once 'dbconnect.php';
 
-	$confirm_key = $_GET["key"];
+	$confirm_key = mysqli_real_escape_string($con,$_GET["key"]);
 	
 	$check = mysqli_query($con, "SELECT email FROM confirm WHERE confirm_key = '$confirm_key'");
 	$row=mysqli_fetch_array($check,MYSQLI_ASSOC);
