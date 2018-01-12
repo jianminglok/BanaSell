@@ -1,0 +1,3 @@
+<mdc-tab-bar #tabBar>
+    <mdc-tab *ngFor="let route of directory; let i = index" routerLink="/{{route.path}}" active="{{route.active}}" [ngClass]="{'black-text': isScrolled}">{{navitem[i].label}}</mdc-tab>
+</mdc-tab-bar>

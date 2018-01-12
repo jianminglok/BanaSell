@@ -1,20 +1,66 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<ng-progress [ease]="'linear'" [color]="'#DA4932'" [spinner]="false" [spinnerPosition]="'right'"></ng-progress>
 
+<div [mdc-theme-dark]="isDarkTheme" #cont>
+    
+        <mdc-temporary-drawer #temporary>   
+            <mdc-temporary-drawer-header class="mdc-theme--primary-bg mdc-theme--text-primary-on-primary">
+            <mdc-temporary-drawer-header-content>
+                <h2 mdc-typography-headline>{{ 'ogiebooks' | translate }}</h2>
+            </mdc-temporary-drawer-header-content>
+            </mdc-temporary-drawer-header>
+            <mdc-temporary-drawer-content>
+                <mdc-list-group>
+                <mdc-list>
+                    <mdc-list-item #listItem *ngFor="let route of directory2 | slice:0:3; let i = index" routerLink="/{{route.path}}" selected="{{navitem[i].select}}">
+                        <mdc-icon mdc-list-item-graphic>{{navitem[i].icon}}</mdc-icon>{{navitem[i].label}}
+                    </mdc-list-item>
+                    <mdc-list-divider></mdc-list-divider> 
+                    <mdc-list-item *ngFor="let route of (directory2 | slice:directory2.length - 5); let i = index;" routerLink="/{{route.path}}">
+                        <mdc-icon mdc-list-item-graphic>{{navitem[i+3].icon}}</mdc-icon>{{navitem[i+3].label}}
+                    </mdc-list-item>
+                </mdc-list>
+                </mdc-list-group>
+            </mdc-temporary-drawer-content>
+        </mdc-temporary-drawer>
+
+        
+        <mdc-toolbar [waterfall]="isWaterfall" [fixed]="isFixed" [ngClass]= "{'page-scroll-header': isScrolled, 'isDarkNavBar': isDarkTheme, 'mdc-toolbar-hide-shadow': isHome}">
+            <mdc-toolbar-row>
+                <mdc-toolbar-section [alignStart]="true">
+                    <button mdc-toolbar-menu-icon material-icon (click)="handleTemporary();" [ngClass]= "{'white__menu-icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>menu</mdc-icon></button>
+                    <a routerLink=""><img *ngIf="isDarkTheme;" class="ogiebooks-logo-image" src="./assets/ogiebooks_white.png"></a>
+                    <a routerLink=""><img *ngIf="!isScrolled && isHome && !isDarkTheme;" class="ogiebooks-logo-image" src="./assets/ogiebooks_white.png"></a>
+                    <a routerLink=""><img *ngIf="!isHome && !isDarkTheme;" class="ogiebooks-logo-image" src="./assets/ogiebooks_black.png"></a>
+                    <a routerLink=""><img *ngIf="isScrolled && isHome && !isDarkTheme;" class="ogiebooks-logo-image" src="./assets/ogiebooks_black.png"></a>
+                </mdc-toolbar-section>
+                <mdc-toolbar-section [alignEnd]="true">
+                    <a *ngIf="isBookList;" (click)="scrolltoTop()" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>filter_list</mdc-icon>&nbsp;&nbsp;FILTER</a>
+                    <a (click)="openMenu()" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>more_vert</mdc-icon></a>
+                    <a href="" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>account_circle</mdc-icon></a>
+                </mdc-toolbar-section>
+            </mdc-toolbar-row>
+            
+        </mdc-toolbar>
+
+        <mdc-menu #menu openFrom="topRight">
+            <mdc-menu-item id="0"><mdc-form-field><mdc-switch [(ngModel)]="isDarkTheme"></mdc-switch><label>{{ 'darkTheme' | translate }}</label></mdc-form-field></mdc-menu-item>
+            <mdc-menu-item id="1" (click)="switchLanguage()">{{ 'switchLanguage' | translate }}</mdc-menu-item>
+            <mdc-menu-item id="2" >Item 3</mdc-menu-item>
+            <mdc-menu-divider></mdc-menu-divider>
+            <mdc-menu-item id="3">Item 4</mdc-menu-item>
+        </mdc-menu>
+
+        <mdc-card class="search-card" [ngClass]= "{'darkThemeHide': isDarkTheme, 'mdcCardHide2': !isHome, 'mdcCardHide': isScrolled}">
+            <mdc-card-primary>
+                <mdc-text-field-box #search class="search-field" label="Search" [ngClass]= "{'darkTheme': isDarkTheme, 'navbar-search-show': isScrolled, 'navbar-search-show': !isHome}" [mdc-theme-dark]="isDarkTheme" (change)="onSearchChange($event)">
+                        <mdc-icon leading>search</mdc-icon>
+                </mdc-text-field-box>
+            </mdc-card-primary>
+        </mdc-card>
+
+       
+
+        
+        
+    <router-outlet (activate)="checkRoute()" ></router-outlet>
+</div>

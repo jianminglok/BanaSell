@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+$mdc-theme-primary: #da4932; // change primary color example
+$mdc-theme-secondary: #da4932; // change secondary color example
+$ogiebooks-theme-color: #da4932
+
+@import "~@angular-mdc/theme";
+
+body
+  margin: 0 !important;
+  position: relative;
+
+*:not(mdc-icon)
+  font-family: 'Catamaran', "Microsoft Yahei", sans-serif !important;
+
+.ogiebooks-logo-image 
+    height: 46.42px;
+    width: 131.84px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+.mdc-toolbar__section--align-start
+    position: relative;
+
+.mdc-toolbar
+    background: none;
+
+.mdc-tab-bar__indicator
+    background-color: $ogiebooks-theme-color !important;
+    height: 4px;
+
+body.mdc-simple-menu--open
+    position: fixed;
+    overflow: hidden;
+
+.mdc-text-field__label
+    top: 25% !important;
+
+app-navbar-tab
+    display: none;
+
+@media (min-width:961px)
+    app-navbar-tab
+        display: block;

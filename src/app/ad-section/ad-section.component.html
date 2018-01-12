@@ -1,0 +1,28 @@
+<div class="app-ad-section" [mdc-theme-dark]="isDarkTheme" >
+    <div  class="swiper-container" [swiper]="config" [(index)]="index">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div data-background="../../assets/background.jpg" class="swiper-lazy slide1">
+                    <div class="swiper-lazy-preloader"></div>
+                    <div class="app-ad-content">
+                        <div class="mdc-typography-display4 ogiebooks-ad-title">{{ 'ogiebooks' | translate }}</div>
+                        <div class="mdc-typography-display4 ogiebooks-ad-content">A 2nd hand book trading platform made by STTSS students, for STTSS students</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                    <div data-background="../../assets/background.jpg" class="swiper-lazy slide1">
+                        <div class="swiper-lazy-preloader"></div>
+                        <div class="app-ad-content">
+                            <div class="mdc-typography-display4 ogiebooks-ad-title">{{ 'ogiebooks' | translate }}</div>
+                            <div class="mdc-typography-display4 ogiebooks-ad-content">More features coming soon</div>
+                        </div>
+                    </div>
+                </div>
+                
+            
+        </div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+    </div>
+</div>

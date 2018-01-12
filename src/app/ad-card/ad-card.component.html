@@ -1,0 +1,60 @@
+<div class="horizontal-scroll-wrapper">
+<mdc-card *ngFor="let elt of element" style="">
+  <mdc-card-primary>
+    <div class="mdc-title-userimg">
+    </div>
+    <h1 mdc-card-title *ngIf="elt.name" >{{ elt.name }}</h1>
+    <h1 mdc-card-title *ngIf="!elt.name" >User</h1>
+    <h2 mdc-card-subtitle>{{ elt.date }}</h2>
+  </mdc-card-primary>
+  <mdc-card-media class="card__16-9-media" [style.background-image]="'url(' + elt.path + ')'">
+    <h1 class="ad-title" [ngClass]= "{'ad-title-long': (getLength(elt.title) > 16), 'ad-title-verylong': (getLength(elt.title) > 30), 'ad-title-veryverylong': (getLength(elt.title) > 35)}">{{ elt.title }}</h1>
+  </mdc-card-media>
+
+  
+  
+  <mdc-card-supporting-text>
+    <mdc-list [interactive]="false" [lines]="2">
+      <mdc-list-item>
+        <mdc-icon mdc-list-item-graphic>thumbs_up_down</mdc-icon>
+        <mdc-list-item-text>
+          Condition
+          <mdc-list-item-secondary>
+            <mdc-icon *ngIf="elt.condition >= '0'" class="ad-rating-icon">star_rate</mdc-icon>
+            <mdc-icon *ngIf="elt.condition >= '1'" class="ad-rating-icon">star_rate</mdc-icon>
+            <mdc-icon *ngIf="elt.condition >= '2'" class="ad-rating-icon">star_rate</mdc-icon>
+            <mdc-icon *ngIf="elt.condition >= '3'" class="ad-rating-icon">star_rate</mdc-icon>
+            <p *ngIf="elt.condition == '1'" class="ad-cond-desc">(Poor)</p>
+            <p *ngIf="elt.condition == '2'" class="ad-cond-desc">(Moderate)</p>
+            <p *ngIf="elt.condition == '3'" class="ad-cond-desc">(Good)</p>
+            <p *ngIf="elt.condition == '4'" class="ad-cond-desc">(Excellent)</p>
+          </mdc-list-item-secondary>
+        </mdc-list-item-text>
+      </mdc-list-item>
+      <mdc-list-item>
+        <mdc-icon mdc-list-item-graphic>attach_money</mdc-icon>
+        <mdc-list-item-text>
+          Price
+          <mdc-list-item-secondary>RM {{ elt.pricing }}</mdc-list-item-secondary>
+        </mdc-list-item-text>
+      </mdc-list-item>
+      <mdc-list-item>
+        <mdc-icon mdc-list-item-graphic>school</mdc-icon>
+        <mdc-list-item-text>
+          Books for
+          <mdc-list-item-secondary *ngIf="elt.form == 'f1'">Junior 1</mdc-list-item-secondary>
+          <mdc-list-item-secondary *ngIf="elt.form == 'f2'">Junior 2</mdc-list-item-secondary>
+          <mdc-list-item-secondary *ngIf="elt.form == 'f3'">Junior 3</mdc-list-item-secondary>
+          <mdc-list-item-secondary *ngIf="elt.form == 'f4'">Senior 1</mdc-list-item-secondary>
+          <mdc-list-item-secondary *ngIf="elt.form == 'f5'">Senior 2</mdc-list-item-secondary>
+          <mdc-list-item-secondary *ngIf="elt.form == 'f6'">Senior 3</mdc-list-item-secondary>
+          <mdc-list-item-secondary *ngIf="elt.form == 'others'">Others</mdc-list-item-secondary>
+        </mdc-list-item-text>
+      </mdc-list-item>
+    </mdc-list>
+  </mdc-card-supporting-text>
+  <mdc-card-actions>
+    <button mdc-card-button>More Info</button>
+  </mdc-card-actions>
+</mdc-card>
+</div>
