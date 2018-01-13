@@ -1,0 +1,123 @@
+<div class="home-component">
+
+    <div class="app-ad-section" *ngFor="let elt of element">
+        <div class="swiper-container" [swiper]="config" [(index)]="index" (indexChange)="onIndexChange($event)">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" *ngFor="let i of paths">
+                    <div class="numbertext">{{ i + 1 }}&nbsp;/&nbsp;{{ paths.length }}</div>
+                    <img [src]="elt.path[i]" class="slide1">
+                </div>
+                    
+                
+            </div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+    </div>
+
+  
+  <mdc-card #allTheseThings id="info" *ngFor="let elt of element">
+
+      <mdc-card-primary>
+          <div class="mdc-title-userimg">
+          </div>
+          <h1 mdc-card-title *ngIf="elt.name" class="mdc-card__title-head">{{ elt.name }}</h1>
+          <h1 mdc-card-title *ngIf="!elt.name" class="mdc-card__title-head">User</h1>
+          <h2 mdc-card-subtitle class="mdc-card__subtitle-head">{{ elt.date }}</h2>
+        </mdc-card-primary>
+
+      <mdc-card-primary>
+          <mdc-card-title>{{ elt.title }}</mdc-card-title>
+          <h2 mdc-card-subtitle *ngIf="elt.description">{{ elt.description }}</h2>
+          <h2 mdc-card-subtitle *ngIf="!elt.description">No Description Provided</h2>
+        </mdc-card-primary>
+      
+      
+      <mdc-card-supporting-text>
+        <mdc-list [interactive]="false" [lines]="2">
+          <mdc-list-item>
+            <mdc-icon mdc-list-item-graphic>thumbs_up_down</mdc-icon>
+            <mdc-list-item-text>
+              Condition
+              <mdc-list-item-secondary>
+                <mdc-icon *ngIf="elt.condition >= '0'" class="ad-rating-icon">star_rate</mdc-icon>
+                <mdc-icon *ngIf="elt.condition >= '1'" class="ad-rating-icon">star_rate</mdc-icon>
+                <mdc-icon *ngIf="elt.condition >= '2'" class="ad-rating-icon">star_rate</mdc-icon>
+                <mdc-icon *ngIf="elt.condition >= '3'" class="ad-rating-icon">star_rate</mdc-icon>
+                <p *ngIf="elt.condition == '1'" class="ad-cond-desc">(Poor)</p>
+                <p *ngIf="elt.condition == '2'" class="ad-cond-desc">(Moderate)</p>
+                <p *ngIf="elt.condition == '3'" class="ad-cond-desc">(Good)</p>
+                <p *ngIf="elt.condition == '4'" class="ad-cond-desc">(Excellent)</p>
+              </mdc-list-item-secondary>
+            </mdc-list-item-text>
+          </mdc-list-item>
+          <mdc-list-item>
+            <mdc-icon mdc-list-item-graphic>attach_money</mdc-icon>
+            <mdc-list-item-text>
+              Price
+              <mdc-list-item-secondary>RM {{ elt.pricing }}</mdc-list-item-secondary>
+            </mdc-list-item-text>
+          </mdc-list-item>
+          <mdc-list-item>
+            <mdc-icon mdc-list-item-graphic>school</mdc-icon>
+            <mdc-list-item-text>
+              Books for
+              <mdc-list-item-secondary *ngIf="elt.form == 'f1'">Junior 1</mdc-list-item-secondary>
+              <mdc-list-item-secondary *ngIf="elt.form == 'f2'">Junior 2</mdc-list-item-secondary>
+              <mdc-list-item-secondary *ngIf="elt.form == 'f3'">Junior 3</mdc-list-item-secondary>
+              <mdc-list-item-secondary *ngIf="elt.form == 'f4'">Senior 1</mdc-list-item-secondary>
+              <mdc-list-item-secondary *ngIf="elt.form == 'f5'">Senior 2</mdc-list-item-secondary>
+              <mdc-list-item-secondary *ngIf="elt.form == 'f6'">Senior 3</mdc-list-item-secondary>
+              <mdc-list-item-secondary *ngIf="elt.form == 'others'">Others</mdc-list-item-secondary>
+            </mdc-list-item-text>
+          </mdc-list-item>
+          <mdc-list-item>
+            <mdc-icon mdc-list-item-graphic>contact_phone</mdc-icon>
+            <mdc-list-item-text>
+              Phone Number
+              <mdc-list-item-secondary>
+                <p class="contact">{{ elt.contact }}</p>
+                <p class="contact2" *ngIf="elt.whatsapp == 1"><mdc-icon class="ad-rating-icon">check_circle</mdc-icon>Whatsapp</p>
+                <p class="contact2" *ngIf="elt.wechat == 1"><mdc-icon class="ad-rating-icon">check_circle</mdc-icon>Wechat</p>
+                <p class="contact2" *ngIf="elt.facebook == 1"><mdc-icon class="ad-rating-icon">check_circle</mdc-icon>Facebook: {{ elt.fb_name }}</p>
+              </mdc-list-item-secondary>
+            </mdc-list-item-text>
+          </mdc-list-item>
+          <mdc-list-item>
+            <mdc-icon mdc-list-item-graphic>library_books</mdc-icon>
+            <mdc-list-item-text>
+              Included Books:
+              <mdc-list-item-secondary *ngFor="let i of booknames">
+                <p *ngIf="elt.book_subject[i] == 'others'" class="contact2">{{ 'others-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'cn'" class="contact2">{{ 'cn-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'en'" class="contact2">{{ 'en-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'bm'" class="contact2">{{ 'bm-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'sci'" class="contact2">{{ 'sci-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'am'" class="contact2">{{ 'am-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'em'" class="contact2">{{ 'em-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'maths'" class="contact2">{{ 'maths-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'sej'" class="contact2">{{ 'sej-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'khb'" class="contact2">{{ 'khb-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'mor'" class="contact2">{{ 'mor-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'geo'" class="contact2">{{ 'geo-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'bio'" class="contact2">{{ 'bio-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'chem'" class="contact2">{{ 'chem-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'phy'" class="contact2">{{ 'phy-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'business'" class="contact2">{{ 'business-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'acc'" class="contact2">{{ 'acc-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'econ'" class="contact2">{{ 'econ-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'bookkeep'" class="contact2">{{ 'bookkeep-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'comop'" class="contact2">{{ 'comp-info' | translate }}</p>
+                <p *ngIf="elt.book_subject[i] == 'chist'" class="contact2">{{ 'chist-info' | translate }}</p>
+                <p class="contact2">{{ elt.book_name[i] }}</p>
+              </mdc-list-item-secondary>
+            </mdc-list-item-text>
+          </mdc-list-item>
+        </mdc-list>
+      </mdc-card-supporting-text>
+      <mdc-card-actions>
+        <button mdc-card-button>More Info</button>
+      </mdc-card-actions>
+    </mdc-card>
+
+</div>

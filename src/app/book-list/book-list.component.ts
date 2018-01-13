@@ -99,6 +99,10 @@ export class BookListComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  getInfo(key: string) {
+    this.router.navigate(['/info', key]);
+  }
+
   private _ulr ="http://localhost/get_test.php?start=";
   private _ulr2 ="http://localhost/get_count.php";
   //private _ulr ="server/student_liste.php";

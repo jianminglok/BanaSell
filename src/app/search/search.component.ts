@@ -101,6 +101,10 @@ export class SearchComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  getInfo(key: string) {
+    this.router.navigate(['/info', key]);
+  }
+
   private _ulr ="http://localhost/search_test.php?search=";
   private _ulr2 ="http://localhost/get_search_count.php?search=";
   //private _ulr ="server/student_liste.php";

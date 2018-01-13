@@ -89,6 +89,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   isHome: boolean = false;
   isBookList: boolean = false;
   isNotHome: boolean;
+  previousUrl:string;
 
   updateHeader(evt) {
     this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || 0);
@@ -116,7 +117,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     if(searchValue && searchValue.indexOf('isTrusted: true') === -1) {
       console.log(searchValue);
       if(this.router.url.indexOf('search') != -1) {
-        this.router.navigate([this.searchValue1]).then(()=>{this.router.navigate(['/search', searchValue])})
+        this.router.navigate([this.searchValue1]).then(()=>{this.router.navigate(['/search', searchValue])});
       } else {
         this.router.navigate(['/search', searchValue], { relativeTo: this.route });
       }
@@ -157,15 +158,16 @@ export class AppComponent implements OnInit, AfterViewInit {
     else if (this.router.url == '/booklist' || this.router.url.indexOf('/search') > -1) {
       this.isHome = false;
       this.isBookList = true;
-    }
-    else if (this.router.url.indexOf('search') === -1) {
-      this.isHome = false;
-      this.isBookList = false;
-      this.search.value = '';
+      if(this.router.url.indexOf('/redirect') == -1 && this.router.url.indexOf('/search') == -1) {
+        this.search.value = '';  
+      }
     }
     else {
       this.isHome = false;
       this.isBookList = false;
+      if(this.router.url.indexOf('/redirect') == -1 && this.router.url.indexOf('/search') == -1) {
+        this.search.value = '';  
+      }
     }
   }
 
@@ -205,9 +207,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     // hide the spinner in case a request fails
     if (event instanceof NavigationCancel) {
       this.progress.done();
+      this.checkRoute();
     }
     if (event instanceof NavigationError) {
       this.progress.done();
+      this.checkRoute();
+      this.previousUrl = event.url;
     }
   }
 }

@@ -66,6 +66,8 @@ import { AdCardComponent } from './ad-card/ad-card.component';
 import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 import { BaseRequestOptions } from '@angular/http/src/base_request_options';
 import { RoundPipePipe } from './round-pipe.pipe';
+import { InfoComponent } from './info/info.component';
+import { RedirectorComponent } from './redirector/redirector.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { RoundPipePipe } from './round-pipe.pipe';
     SearchComponent,
     InfiniteScrollerDirective,
     RoundPipePipe,
+    InfoComponent,
+    RedirectorComponent,
   ],
   imports: [
     BrowserModule,

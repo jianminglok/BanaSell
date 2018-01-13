@@ -10,6 +10,8 @@ import { ContactComponent } from './contact/contact.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AccountComponent } from './account/account.component';
 import { SearchComponent } from './search/search.component';
+import { InfoComponent } from './info/info.component';
+import { RedirectorComponent } from './redirector/redirector.component';
 
 export const navbarRoutes: Routes = [
     { path: '', component:  HomeComponent},
@@ -17,6 +19,8 @@ export const navbarRoutes: Routes = [
     { path: 'postanad', component: AdSubmitComponent },
     { path: 'search', component: SearchComponent},
     { path: 'search/:term', component: SearchComponent},
+    { path: 'info/:term', component: InfoComponent},
+    { path: 'redirect', component: RedirectorComponent},
 ]
 
 export const drawerRoutes: Routes = [
