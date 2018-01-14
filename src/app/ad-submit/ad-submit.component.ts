@@ -83,7 +83,7 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
   
   subjectname: number[] = [];
   bookname: number[] = [];
-
+  bookname2: boolean[] = [];
   namescount: number = 1;
 
   isEmpty: boolean = false;
@@ -117,6 +117,8 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
   phone: string;
   price: string;
   facebookname: string;
+
+  qtd: any[];
 
   @ViewChildren('allTheseThings') things: QueryList<any>;
 
@@ -271,8 +273,10 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
       console.log(this.phone);
       console.log(this.price);
       console.log(this.selectedcondtition);
+
+     
     } else {
-      
+      console.log(this.subjectname[1]);
     }
     if(this.title) {
       
@@ -281,7 +285,9 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
     }
 
     for(var i=0; i < this.bookname.length; i++) {
-      
+      if(!this.bookname[i]) {
+        this.bookname2[i] = true;
+      }
     }
   }
 

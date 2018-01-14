@@ -77,7 +77,7 @@
         <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Facebook name is required</p>
 
         <div class="book-add" *ngFor="let i of booknames; let z=index;">
-          <mdc-text-field label="Book Name" id="bookname{{z}}" [(ngModel)]="bookname[z]" [required]="true" [disabled]="false" [dense]="false" style="width: 61% !important; display: inline-flex !important;"></mdc-text-field>
+          <mdc-text-field label="Book Name" id="bookname{{z}}" [ngClass]="{'ng-invalid': bookname2[z], 'mdc-text-field--invalid': bookname2[z]}" [(ngModel)]="bookname[z]" [required]="true" [disabled]="false" [dense]="false" style="width: 61% !important; display: inline-flex !important;"></mdc-text-field>
           <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty" style="position: absolute;">Book Name is required</p>
         
           <div class="select-subject" [ngClass]="{ 'selected-subject': subjectname[z] }">
