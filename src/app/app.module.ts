@@ -15,6 +15,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { NgUploaderModule } from 'ngx-uploader';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -64,10 +65,10 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { SearchComponent } from './search/search.component';
 import { AdCardComponent } from './ad-card/ad-card.component';
 import { InfiniteScrollerDirective } from './infinite-scroller.directive';
-import { BaseRequestOptions } from '@angular/http/src/base_request_options';
 import { RoundPipePipe } from './round-pipe.pipe';
 import { InfoComponent } from './info/info.component';
 import { RedirectorComponent } from './redirector/redirector.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -116,8 +117,10 @@ import { RedirectorComponent } from './redirector/redirector.component';
     InfiniteScrollModule,
     MdcLinearProgressModule,
     MdcSelectModule,
+    FileUploadModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
+    NgUploaderModule,
     RouterModule.forRoot(navbarRoutes, { useHash: true, enableTracing: false }),
     RouterModule.forRoot(drawerRoutes, { useHash: true, enableTracing: false }),
     SwiperModule,

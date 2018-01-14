@@ -1,17 +1,17 @@
 <div class="home-component" #cont>
   <div id="top">
     <h1 class="title">{{ 'booklist-title' | translate }}</h1>
-    <mdc-select #pages placeholder="Pages" [(ngModel)]="selectedValue3" name="pages" [disabled]="isDisabled" (change)="handleChange3($event)">
+    <mdc-select #pages placeholder="Pages" [(ngModel)]="selectedValue3" name="pages" (change)="handleChange3($event)">
         <mdc-select-item *ngFor="let i of numbers" [value]="(i+1) * 56 - 56">
           {{ i+1 }}
           </mdc-select-item>
         </mdc-select>
-    <mdc-select #form placeholder="Form" [(ngModel)]="selectedValue" name="form" [disabled]="isDisabled" (change)="handleChange($event)">
+    <mdc-select #form placeholder="Form" [(ngModel)]="selectedValue" name="form" (change)="handleChange($event)">
     <mdc-select-item *ngFor="let form of forms" [value]="form.value">
       {{form.description}}
       </mdc-select-item>
     </mdc-select>
-    <mdc-select #filter placeholder="Sort by" [(ngModel)]="selectedValue2" name="filter" [disabled]="isDisabled" (change)="handleChange2($event)">
+    <mdc-select #filter placeholder="Sort by" [(ngModel)]="selectedValue2" name="filter" (change)="handleChange2($event)">
       <mdc-select-item *ngFor="let filter of filters" [value]="filter.filter">
         {{filter.description}}
       </mdc-select-item>
@@ -78,7 +78,7 @@
     </div>
 </div>
 
-<mdc-toolbar [ngClass]= "{'darkTheme': isDarkTheme}" [fixed]="isFixed" [waterfall]="isWaterfall" class="booklist-nav">
+<mdc-toolbar [fixed]="isFixed" class="booklist-nav">
   <mdc-toolbar-row>
     <mdc-toolbar-section *ngIf="dbstart > 0;" [alignStart]="true">
       <button mdc-button [primary]="true" [raised]="true" class="booklist-nav-button" (click)="goPrev()">

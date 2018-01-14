@@ -52,7 +52,7 @@
 
         <mdc-card class="search-card" [ngClass]= "{'darkThemeHide': isDarkTheme, 'mdcCardHide2': !isHome, 'mdcCardHide': isScrolled}">
             <mdc-card-primary>
-                <mdc-text-field-box #search class="search-field" label="Search" [ngClass]= "{'darkTheme': isDarkTheme, 'navbar-search-show': isScrolled, 'navbar-search-show': !isHome}" [mdc-theme-dark]="isDarkTheme" (change)="onSearchChange($event)">
+                <mdc-text-field-box #search class="search-field" label="Search" [ngClass]= "{'darkTheme': isDarkTheme, 'navbar-search-show': isScrolled || !isHome}" [mdc-theme-dark]="isDarkTheme" (change)="onSearchChange($event)">
                         <mdc-icon leading>search</mdc-icon>
                 </mdc-text-field-box>
             </mdc-card-primary>

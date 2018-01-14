@@ -66,7 +66,7 @@ export class BookListComponent implements OnInit {
   scrollDistance: number = 1.5;
 
   element: any[];
-  element2: any[];
+  element2: number;
   numbers: number[];
 
   pages: number;
@@ -74,6 +74,10 @@ export class BookListComponent implements OnInit {
   eventValue: any;
 
   dbcount: number;
+
+  selectedValue: any;
+  selectedValue2: any;
+  selectedValue3: any;
 
   forms: FormItem[] = forms;
   filters: FilterItem[] = filters;
@@ -165,6 +169,7 @@ export class BookListComponent implements OnInit {
   handleChange2(event: { index: number, value: any }) {
     this.filter = event.value;
     this.dbend = 8;
+    this.dbstart = 0;
     if(this.filter == event.value && this.filter != '') {
       this.getCount();
       this.getPost(this.dbstart, this.dbend);

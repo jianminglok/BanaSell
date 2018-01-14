@@ -130,7 +130,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('listItem') listItem: MdcListItem;
 
   isFixed: boolean = true;
-  waterfall: boolean = true;
+  isWaterfall: boolean = false;
 
   drawertitle = title;
 
@@ -189,7 +189,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    document.getElementsByClassName("mdc-text-field__label")[0].setAttribute('style', 'top: 25%');
   }
 
   // Shows and hides the loading spinner during RouterEvent changes

@@ -68,8 +68,12 @@ export class SearchComponent implements OnInit {
   dbend: number = 8;
   scrollDistance: number = 1.5;
 
+  selectedValue: any;
+  selectedValue2: any;
+  selectedValue3: any;
+
   element: any[];
-  element2: any[];
+  element2: number;
 
   pages: number;
   proceed: boolean = false;
@@ -175,6 +179,7 @@ export class SearchComponent implements OnInit {
   handleChange2(event: { index: number, value: any }) {
     this.filter = event.value;
     this.dbend = 8;
+    this.dbstart = 0;
     if(this.filter == event.value && this.filter != '') {
       this.getCount(this.test);
       this.getPost(this.test);

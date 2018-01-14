@@ -1,3 +1,99 @@
-<p>
-  ad-submit works!
-</p>
+<div class="home-component">
+
+
+<mdc-card #allTheseThings id="info">
+
+    <mdc-card-media class="card__16-9-media">
+    </mdc-card-media>
+    <div class="card-wrapper">
+        
+          <mdc-text-field label="Title" type="text" id="title" [ngClass]="{'ng-invalid': isTest, 'mdc-text-field--invalid': isTest}" [(ngModel)]="title" [required]="true" [disabled]="false" [dense]="false" style="margin-top: 1.5em;"></mdc-text-field>
+          <p mdc-text-field-helper-text [validation]="isNull" [persistent]="isEmpty">Title is required</p>
+          <mdc-textarea rows="8" cols="20" [(ngModel)]="description" label="Description of Your Ad" [disabled]="false" [dense]="false"></mdc-textarea>
+          <mdc-select #condition placeholder="Condition of Your Books" [(ngModel)]="selectedcondition" name="condition">
+            <mdc-select-item *ngFor="let condition of conditions" [value]="condition.value">
+              {{condition.description}}
+              </mdc-select-item>
+          </mdc-select>
+          <mdc-text-field label="Phone Number" type="number" [(ngModel)]="phone" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+          <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Phone number is required</p>
+          <mdc-text-field label="Selling Price" type="number" [(ngModel)]="price" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+          <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Selling price is required</p>
+          <mdc-select #form placeholder="Form Your Book/s is/are For" [(ngModel)]="selectedform" name="form">
+            <mdc-select-item *ngFor="let form of forms" [value]="form.value">
+              {{form.description}}
+              </mdc-select-item>
+          </mdc-select>
+          <mdc-card-actions>
+            <button mdc-card-button class="mdc-card__submit-actions" (click)="test()">Post Ad</button>
+          </mdc-card-actions>
+          
+    </div>
+    <div class="card-wrapper card-wrapper2">
+      
+        <p style="display: inline-flex; padding-right: 5.5em; padding-top: 1em;">Upload Photos</p>
+        <button mdc-button (click)="inputFile.click()" [primary]="true" [raised]="true">
+          Select Files
+        </button>
+        <input #inputFile type="file" accept="image/jpg, image/jpeg, image/png, image/gif" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple style="display: none;">
+        <p *ngFor="let f of files; let i = index;"> </p>
+        <mdc-list #startgraphic [interactive]="false" [lines]="2">
+          <mdc-list-item *ngFor="let f of files; let i = index;">
+            <mdc-icon mdc-list-item-graphic>cloud_done</mdc-icon>
+            <mdc-list-item-text>
+              {{ f.name }} - {{ f.progress?.data?.percentage }}%
+              <mdc-list-item-secondary>ETA {{ f.progress?.data?.etaHuman }}</mdc-list-item-secondary>
+            </mdc-list-item-text>
+            <button mdc-button mdc-list-item-meta class="upload-button" (click)="removeFile(f.id)" style="height: 36px;">
+              <mdc-icon style="font-size: 24px">delete</mdc-icon>
+            </button>
+            
+          </mdc-list-item>
+        </mdc-list>
+        <mdc-form-field [alignEnd]="false">
+          <mdc-checkbox #checkbox [(ngModel)]="whatsapp" [indeterminate]="false"
+          [indeterminateToChecked]="false"
+          [disabled]="false" [disableRipple]="false">
+        </mdc-checkbox>
+          <label>WhatsApp</label>
+        </mdc-form-field>
+        <mdc-form-field [alignEnd]="false">
+          <mdc-checkbox #checkbox [(ngModel)]="wechat" [indeterminate]="false"
+          [indeterminateToChecked]="false"
+          [disabled]="false" [disableRipple]="false">
+        </mdc-checkbox>
+          <label>Wechat</label>
+        </mdc-form-field>
+        <mdc-form-field [alignEnd]="false">
+          <mdc-checkbox #checkbox [(ngModel)]="facebook" [indeterminate]="false"
+          [indeterminateToChecked]="false"
+          [disabled]="false" [disableRipple]="false">
+        </mdc-checkbox>
+          <label>Facebook</label>
+        </mdc-form-field>
+        
+       
+        <mdc-text-field *ngIf="facebook" label="Facebook Name" [(ngModel)]="facebookname" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+        <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Facebook name is required</p>
+
+        <div class="book-add" *ngFor="let i of booknames; let z=index;">
+          <mdc-text-field label="Book Name" id="bookname{{z}}" [(ngModel)]="bookname[z]" [required]="true" [disabled]="false" [dense]="false" style="width: 61% !important; display: inline-flex !important;"></mdc-text-field>
+          <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty" style="position: absolute;">Book Name is required</p>
+        
+          <div class="select-subject" [ngClass]="{ 'selected-subject': subjectname[z] }">
+            <mdc-select #subject placeholder="Subject" [(ngModel)]="subjectname[z]" name="subject">
+                <mdc-select-item *ngFor="let subject of subjectslist" [value]="subject.value">
+                  {{subject.description}}
+                  </mdc-select-item>
+              </mdc-select>
+          </div>
+        </div>
+        <mdc-card-actions style="display: block; padding-top: 2em;">
+            <button mdc-card-button class="subject-button" (click)="addField()">Add Another Field</button>
+            <button mdc-card-button class="subject-button" (click)="removeField()">Remove A Field</button>
+            <button mdc-card-button class="subject-button" (click)="removeAllField()">Remove All Added Fields</button>
+        </mdc-card-actions>
+    </div>
+  </mdc-card>
+
+</div>
