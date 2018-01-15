@@ -7,25 +7,28 @@
     </mdc-card-media>
     <div class="card-wrapper">
         
-          <mdc-text-field label="Title" type="text" id="title" [ngClass]="{'ng-invalid': isTest, 'mdc-text-field--invalid': isTest}" [(ngModel)]="title" [required]="true" [disabled]="false" [dense]="false" style="margin-top: 1.5em;"></mdc-text-field>
-          <p mdc-text-field-helper-text [validation]="isNull" [persistent]="isEmpty">Title is required</p>
+          <mdc-text-field label="Title" type="text" id="" [ngClass]="{'ng-invalid': input2[0], 'mdc-text-field--invalid': input2[0]}" [(ngModel)]="input[0]" [required]="true" [disabled]="false" [dense]="false" style="margin-top: 1.5em;"></mdc-text-field>
+          <p mdc-text-field-helper-text [validation]="isNull" [(ngModel)]="description" [persistent]="isEmpty">Title is required</p>
           <mdc-textarea rows="8" cols="20" [(ngModel)]="description" label="Description of Your Ad" [disabled]="false" [dense]="false"></mdc-textarea>
-          <mdc-select #condition placeholder="Condition of Your Books" [(ngModel)]="selectedcondition" name="condition">
+          <mdc-select #condition placeholder="Condition of Your Books" [ngClass]="{'ng-invalid': input2[1], 'mdc-text-field--invalid': input2[1]}" [(ngModel)]="input[1]" name="condition">
             <mdc-select-item *ngFor="let condition of conditions" [value]="condition.value">
               {{condition.description}}
               </mdc-select-item>
           </mdc-select>
-          <mdc-text-field label="Phone Number" type="number" [(ngModel)]="phone" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+          <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Condition of books is required</p>
+          <mdc-text-field label="Phone Number" type="number" [ngClass]="{'ng-invalid': input2[2], 'mdc-text-field--invalid': input2[2]}" [(ngModel)]="input[2]" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
           <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Phone number is required</p>
-          <mdc-text-field label="Selling Price" type="number" [(ngModel)]="price" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+          <mdc-text-field label="Selling Price" type="number" [ngClass]="{'ng-invalid': input2[3], 'mdc-text-field--invalid': input2[3]}" [(ngModel)]="input[3]" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
           <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Selling price is required</p>
-          <mdc-select #form placeholder="Form Your Book/s is/are For" [(ngModel)]="selectedform" name="form">
+          <mdc-select #form placeholder="Form Your Book/s is/are For" [ngClass]="{'ng-invalid': input2[4], 'mdc-text-field--invalid': input2[4]}" [(ngModel)]="input[4]" name="form">
             <mdc-select-item *ngFor="let form of forms" [value]="form.value">
               {{form.description}}
               </mdc-select-item>
           </mdc-select>
+          <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Form books are for is required</p>
+          
           <mdc-card-actions>
-            <button mdc-card-button class="mdc-card__submit-actions" (click)="test()">Post Ad</button>
+            <button mdc-card-button class="mdc-card__submit-actions" (click)="submitForm()">Post Ad</button>
           </mdc-card-actions>
           
     </div>
@@ -73,7 +76,7 @@
         </mdc-form-field>
         
        
-        <mdc-text-field *ngIf="facebook" label="Facebook Name" [(ngModel)]="facebookname" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+        <mdc-text-field *ngIf="facebook" label="Facebook Name" [ngClass]="{'ng-invalid': input2[5], 'mdc-text-field--invalid': input2[5]}" [(ngModel)]="input[5]" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
         <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Facebook name is required</p>
 
         <div class="book-add" *ngFor="let i of booknames; let z=index;">
@@ -81,11 +84,12 @@
           <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty" style="position: absolute;">Book Name is required</p>
         
           <div class="select-subject" [ngClass]="{ 'selected-subject': subjectname[z] }">
-            <mdc-select #subject placeholder="Subject" [(ngModel)]="subjectname[z]" name="subject">
+            <mdc-select #subject placeholder="Subject" [ngClass]="{'ng-invalid': subjectname2[z], 'mdc-text-field--invalid': subjectname2[z]}" [(ngModel)]="subjectname[z]" name="subject">
                 <mdc-select-item *ngFor="let subject of subjectslist" [value]="subject.value">
                   {{subject.description}}
                   </mdc-select-item>
               </mdc-select>
+              <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty" style="position: absolute; top: 6em;">Subject name is required</p>
           </div>
         </div>
         <mdc-card-actions style="display: block; padding-top: 2em;">

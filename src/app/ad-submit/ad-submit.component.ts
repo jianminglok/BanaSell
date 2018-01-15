@@ -21,7 +21,6 @@ export class FormItem {
   value: string;
   description: string;
 }
-
 const forms: FormItem[] = [
   { value: '%', description: 'All' },
   { value: 'f1', description: 'Junior 1' },
@@ -47,7 +46,7 @@ const subjects: FormItem[] = [
   { value: 'sci', description: 'Science' },
   { value: 'am', description: 'Ad. Maths (S)' },
   { value: 'em', description: 'Maths (C)' },
-  { value: 'maths', description: '(Maths)' },
+  { value: 'maths', description: 'Maths' },
   { value: 'sej', description: 'Sejarah' },
   { value: 'khb', description: 'KHB' },
   { value: 'mor', description: 'Moral' },
@@ -62,6 +61,15 @@ const subjects: FormItem[] = [
   { value: 'comp', description: 'Computer' },
   { value: 'chist', description: 'Chinese History' },
   { value: 'others', description: 'Others'  },
+];
+
+const inputs: any[] = [
+  { value: 'title' },
+  { value: 'condition' },
+  { value: 'phone' },
+  { value: 'price' },
+  { value: 'form' },
+  { value: 'fb_name' }
 ];
 
 @Component({
@@ -81,10 +89,17 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
   selectedform: string;
   selectedcondtition: string;
   
-  subjectname: number[] = [];
-  bookname: number[] = [];
+  subjectname: any[] = [];
+  subjectname2: boolean[] = [];
+  bookname: any[] = [];
+  bookcount: any[] = [];
   bookname2: boolean[] = [];
+
+  input: any[] = [];
+  input2: boolean[] = [];
   namescount: number = 1;
+
+  isError: any[] = [];
 
   isEmpty: boolean = false;
   isNull: boolean = true;
@@ -111,6 +126,7 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
   forms: FormItem[] = forms;
   conditions: FormItem[] = conditions;
   subjectslist: FormItem[] = subjects;
+  inputs: any[] = inputs;
 
   title: string;
   description: string;
@@ -125,14 +141,14 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
   onUploadOutput(output: UploadOutput): void {
     if (output.type === 'allAddedToQueue') { // when all files added in queue
       // uncomment this if you want to auto upload files when added
-       const event: UploadInput = {
-         type: 'uploadAll',
-         url: 'http://localhost/file_upload.php',
-         method: 'POST',
-         data: { foo: 'bar' }
-       };
+      // const event: UploadInput = {
+      //   type: 'uploadAll',
+      //   url: 'http://localhost/file_upload.php',
+      //   method: 'POST',
+      //   data: { foo: 'bar' }
+      // };
        
-        this.uploadInput.emit(event);
+      //  this.uploadInput.emit(event);
 
     } else if (output.type === 'addedToQueue'  && typeof output.file !== 'undefined') { // add file to array when added
       if(this.files.length > 7) {
@@ -209,17 +225,46 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
     this.booknames = Array(this.namescount).fill(0).map((x,i)=> i );
     this.subjectname.length = this.namescount;
     this.bookname.length = this.namescount;
+
+    this.input.length = 6;
   }
 
-  private _ulr ="http://localhost/get_info.php";
+  private _ulr ="http://localhost/submit_ad.php";
 
-  public getPost(){
+  public getPost(input: any[]){
     let body: HttpParams = new HttpParams();
-    body = body.append('key2', this.key);    
-
+    for(var i=0; i < input.length; i++) {
+      body = body.append(this.inputs[i].value, input[i]);    
+    }
+    if(this.bookname.length > 0) {
+      for(var i=0; i < this.bookname.length; i++) {
+        if(this.bookname[i]) {
+          body = body.append('book' + i, this.bookname[i]);
+          body = body.append('subject' + i, this.subjectname[i]);  
+        }
+      }
+    }
+    if(this.description) {
+      body = body.append('description', this.description);
+    }
+    if(this.whatsapp) {
+      body = body.append('whatsapp', '1');
+    } else {
+      body = body.append('whatsapp', '0');
+    }
+    if(this.wechat) {
+      body = body.append('wechat', '1');
+    } else {
+      body = body.append('wechat', '0');
+    }
+    if(this.facebook) {
+      body = body.append('fb', '1');
+    } else {
+      body = body.append('fb', '0');
+    }
     let options = new RequestOptions({ headers: this.headers });
 
-    return this._http.post(this._ulr, JSON.stringify(this.key), options)
+    return this._http.post(this._ulr, JSON.stringify(body), options)
     .map( res => res.json() )
     .subscribe(
       data => { this.element = data 
@@ -248,6 +293,12 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
     this.booknames = Array(this.namescount).fill(0).map((x,i)=> i );
     this.subjectname.length = this.namescount;
     this.bookname.length = this.namescount;
+    if(this.booknames.length > 2) {
+      this.height += 100;
+      document.getElementsByClassName('card__16-9-media')[0].setAttribute('style', 'height: ' + this.height + 'px;');
+      document.getElementsByClassName('card-wrapper')[0].setAttribute('style', 'height: ' + this.height + 'px;');
+      document.getElementsByClassName('card-wrapper')[1].setAttribute('style', 'height: ' + this.height + 'px;');
+    }
   }
 
   removeField() {
@@ -256,6 +307,12 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
       this.booknames = Array(this.namescount).fill(0).map((x,i)=> i );
       this.subjectname.length = this.namescount;
       this.bookname.length = this.namescount;
+      if(this.booknames.length > 2) {
+        this.height -= 100;
+        document.getElementsByClassName('card__16-9-media')[0].setAttribute('style', 'height: ' + this.height + 'px;');
+        document.getElementsByClassName('card-wrapper')[0].setAttribute('style', 'height: ' + this.height + 'px;');
+        document.getElementsByClassName('card-wrapper')[1].setAttribute('style', 'height: ' + this.height + 'px;');
+      }
     }
   }
 
@@ -264,32 +321,54 @@ export class AdSubmitComponent implements OnInit, AfterViewInit {
     this.booknames = Array(this.namescount).fill(0).map((x,i)=> i );
     this.subjectname.length = this.namescount;
     this.bookname.length = this.namescount;
+    this.height = 840 + (this.files.length * 72);
+    if(this.facebook) {
+      this.height += 69;
+    }
+    document.getElementsByClassName('card__16-9-media')[0].setAttribute('style', 'height: ' + this.height + 'px;');
+    document.getElementsByClassName('card-wrapper')[0].setAttribute('style', 'height: ' + this.height + 'px;');
+    document.getElementsByClassName('card-wrapper')[1].setAttribute('style', 'height: ' + this.height + 'px;');
   }
 
-  test() {
-    if(this.title && this.phone && this.price && this.selectedcondtition) {
-      console.log(this.title);
-      console.log(this.description);
-      console.log(this.phone);
-      console.log(this.price);
-      console.log(this.selectedcondtition);
+  submitForm() {
 
-     
-    } else {
-      console.log(this.subjectname[1]);
-    }
-    if(this.title) {
-      
-    } else {
-      this.isTest = true;
+    this.bookcount.length = 0;
+
+    this.input.length = 6;
+
+    this.isError.length = 0;
+
+    for(var i=0; i < this.subjectname.length; i++) {
+      if(this.bookname[i]) {
+        if(!this.subjectname[i]) {
+          this.subjectname2[i] = true;
+          this.isError.length += 1;
+        } else {
+          this.subjectname2[i] = false;
+          this.bookcount.length += 1;
+        }
+      } 
     }
 
-    for(var i=0; i < this.bookname.length; i++) {
-      if(!this.bookname[i]) {
-        this.bookname2[i] = true;
+    if(!this.facebook) {
+      this.input.length -= 1;
+    } 
+
+    for(var i=0; i < this.input.length; i++) {
+      if(!this.input[i]) {
+        this.input2[i] = true;
+        this.isError.length += 1;
+      } else {
+        this.input2[i] = false;
       }
     }
+
+    
+    if(this.isError.length == 0) {
+      this.getPost(this.input);
+    }
+    
+
   }
 
- 
 }

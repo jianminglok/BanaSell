@@ -26,6 +26,7 @@
     "@ngx-progressbar/http": "^3.0.2",
     "@ngx-translate/core": "^9.0.2",
     "@ngx-translate/http-loader": "^2.0.1",
+    "angular": "^1.6.8",
     "angular-http-service": "^1.2.9",
     "angular2-infinite-scroll": "^0.3.5",
     "angular2-virtual-scroll": "^0.3.1",
