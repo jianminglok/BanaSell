@@ -12,6 +12,7 @@ import { AccountComponent } from './account/account.component';
 import { SearchComponent } from './search/search.component';
 import { InfoComponent } from './info/info.component';
 import { RedirectorComponent } from './redirector/redirector.component';
+import { LoginComponent } from './login/login.component';
 
 export const navbarRoutes: Routes = [
     { path: '', component:  HomeComponent},
@@ -21,6 +22,7 @@ export const navbarRoutes: Routes = [
     { path: 'search/:term', component: SearchComponent},
     { path: 'info/:term', component: InfoComponent},
     { path: 'redirect', component: RedirectorComponent},
+    { path: 'login', component: LoginComponent},
 ]
 
 export const drawerRoutes: Routes = [

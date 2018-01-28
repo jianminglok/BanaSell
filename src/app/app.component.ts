@@ -3,7 +3,7 @@ import { RouterModule, Router, Event as RouterEvent, NavigationStart, Navigation
 import { NavbarComponent } from './navbar/navbar.component';
 import { drawerRoutes } from './routes';
 import { MdcMenu, MdcMenuOpenFrom, MdcListItem, MdcTemporaryDrawer, MdcTextField } from '@angular-mdc/web';
-import { AfterViewInit, OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { AfterViewInit, OnInit, OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { TranslateService } from '@ngx-translate/core';
 import { NavbarTabComponent } from './navbar-tab/navbar-tab.component';
 import { Location } from '@angular/common';
@@ -13,6 +13,10 @@ import { Element } from '@angular/compiler';
 import { Input } from '@angular/core/src/metadata/directives';
 import { NgProgress } from '@ngx-progressbar/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpParams, HttpHeaders } from '@angular/common/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { LoginSharedService } from './login-shared.service';
+import { ISubscription } from "rxjs/Subscription";
 
 export class DrawerItem {
   label: string;
@@ -58,7 +62,12 @@ const forms: FormItem[] = [
 })
 
 @Injectable()
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  private subscription: ISubscription;
+
+  private element: any[];
+  headers: Headers;
 
   blockback: boolean = true;
 
@@ -72,13 +81,20 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'Ogiebooks';
   searchValue1: string;
 
+  private jwt: string;
+
   selectedIndex = -1;
   openFrom: MdcMenuOpenFrom = 'topRight';
-  @ViewChild('menu') menu: MdcMenu;
+  @ViewChild('menu1') menu1: MdcMenu;
+  @ViewChild('menu2') menu2: MdcMenu;
   @ViewChild('search') search: MdcTextField;
 
-  openMenu() {
-    this.menu.open();
+  openMenu1() {
+    this.menu1.open();
+  }
+
+  openMenu2() {
+    this.menu2.open();
   }
 
   isDarkTheme: boolean = false;
@@ -90,6 +106,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   isBookList: boolean = false;
   isNotHome: boolean;
   previousUrl:string;
+
+  isLoggedIn: boolean = false;
 
   updateHeader(evt) {
     this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || 0);
@@ -171,7 +189,36 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor(public translate: TranslateService, private router: Router, private location: Location, private ngZone: NgZone, private renderer: Renderer, public progress: NgProgress, private route: ActivatedRoute) {
+  private _ulr ="http://localhost/check_auth.php";
+
+  public checkLogin(){
+    let body = new HttpParams();   
+    body = body.append('jwt', this.jwt);
+
+    let options = new RequestOptions({ headers: this.headers });
+
+    return this._http.post(this._ulr, JSON.stringify(body), options)
+    .map( res => res.json() )
+    .subscribe(
+      data => { this.element = data 
+        this.isLoggedIn = true;
+      },
+      err => console.error(err),
+      () => console.log('done')
+    );
+     // .map( res  =><Element[]> res.json())
+  }
+  
+  logout(): void {
+    // clear token remove user from local storage to log user out
+    this.jwt = null;
+    localStorage.removeItem('currentUser');
+    this.isLoggedIn = false;
+    this.menu2.close();
+    this.router.navigate(['/']);
+  }
+
+  constructor(public translate: TranslateService, private router: Router, private location: Location, private ngZone: NgZone, private renderer: Renderer, public progress: NgProgress, private route: ActivatedRoute, private _http: Http, private shared: LoginSharedService) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.addLangs(["en", "cn"]);
     translate.setDefaultLang('en');
@@ -182,10 +229,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     router.events.subscribe((event: RouterEvent) => {
       this._navigationInterceptor(event)
     })
+
+    this.jwt = localStorage.getItem('currentUser');
+    this.checkLogin();
   }
 
   ngOnInit() {
     this.checkRoute();
+    this.subscription = this.shared.getEmittedValue()
+      .subscribe(item => this.isLoggedIn=item);
   }
 
   ngAfterViewInit() {
@@ -214,6 +266,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.checkRoute();
       this.previousUrl = event.url;
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
 

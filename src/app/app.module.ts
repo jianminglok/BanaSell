@@ -16,6 +16,8 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { NgUploaderModule } from 'ngx-uploader';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -69,6 +71,8 @@ import { RoundPipePipe } from './round-pipe.pipe';
 import { InfoComponent } from './info/info.component';
 import { RedirectorComponent } from './redirector/redirector.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { LoginComponent } from './login/login.component';
+import { LoginSharedService } from './login-shared.service';
 
 @NgModule({
   declarations: [
@@ -91,6 +95,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     RoundPipePipe,
     InfoComponent,
     RedirectorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,6 +128,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     NgUploaderModule,
     RouterModule.forRoot(navbarRoutes, { useHash: true, enableTracing: false }),
     RouterModule.forRoot(drawerRoutes, { useHash: true, enableTracing: false }),
+    RecaptchaModule.forRoot(), // Keep in mind the "forRoot"-magic nuances!
+    RecaptchaFormsModule,
     SwiperModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -142,6 +149,7 @@ import { FileUploadModule } from 'ng2-file-upload';
       useValue: DEFAULT_SWIPER_CONFIG,
       
     },    
+    LoginSharedService,
   ],
   bootstrap: [AppComponent]
 })

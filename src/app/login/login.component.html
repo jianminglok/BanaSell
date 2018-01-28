@@ -1,0 +1,47 @@
+<div class="home-component">
+
+
+  <mdc-card #allTheseThings id="info">
+  
+      <mdc-card-media class="card__16-9-media">
+      </mdc-card-media>
+      <div>
+      <div class="card-wrapper">
+          <form #captchaProtectedForm="ngForm">
+          
+            <mdc-text-field label="Email" name="email" [(ngModel)]="email" type="email" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+            <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Email is required</p>
+            
+            <mdc-text-field label="Password" name="password" [(ngModel)]="password" type="password" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
+            <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Password is required</p>
+
+            <mdc-form-field [alignEnd]="false">
+              <mdc-checkbox #checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="myModel" [indeterminate]="false"
+              [indeterminateToChecked]="false"
+              [disabled]="false" [disableRipple]="false">
+            </mdc-checkbox>
+              <label>Stay logged in</label>
+            </mdc-form-field>
+
+              <re-captcha
+              [(ngModel)]="formModel.captcha"
+              name="captcha"
+              required
+              siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"
+              #captchaControl="ngModel"
+            ></re-captcha>
+            
+            <mdc-card-actions >
+              <div [hidden]="!captchaControl.valid" >
+              <button [disabled]="!captchaProtectedForm.form.valid" mdc-card-button class="mdc-card__submit-actions" (click)="getPost()">Login</button>
+            </div>
+              <button mdc-card-button class="mdc-card__submit-actions" style="left: 6em" (click)="getPost()">Need Help?</button>
+            </mdc-card-actions>
+          </form>
+      </div>
+    </div>
+      
+    </mdc-card>
+  
+  </div>
+  

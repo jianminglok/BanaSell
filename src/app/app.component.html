@@ -35,19 +35,24 @@
                 </mdc-toolbar-section>
                 <mdc-toolbar-section [alignEnd]="true">
                     <a *ngIf="isBookList;" (click)="scrolltoTop()" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>filter_list</mdc-icon>&nbsp;&nbsp;FILTER</a>
-                    <a (click)="openMenu()" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>more_vert</mdc-icon></a>
-                    <a href="" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>account_circle</mdc-icon></a>
+                    <a (click)="openMenu1()" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome}"><mdc-icon>more_vert</mdc-icon></a>
+                    <a (click)="openMenu2()" mdc-toolbar-icon material-icon [ngClass]= "{'white__icon': isScrolled, 'dark__icon': isDarkTheme, 'black__icon': isHome, 'loggedin_icon': isLoggedIn}"><mdc-icon>account_circle</mdc-icon></a>
                 </mdc-toolbar-section>
             </mdc-toolbar-row>
             
         </mdc-toolbar>
 
-        <mdc-menu #menu openFrom="topRight">
+        <mdc-menu #menu1 class="menu1" openFrom="topRight">
             <mdc-menu-item id="0"><mdc-form-field><mdc-switch [(ngModel)]="isDarkTheme"></mdc-switch><label>{{ 'darkTheme' | translate }}</label></mdc-form-field></mdc-menu-item>
             <mdc-menu-item id="1" (click)="switchLanguage()">{{ 'switchLanguage' | translate }}</mdc-menu-item>
             <mdc-menu-item id="2" >Item 3</mdc-menu-item>
             <mdc-menu-divider></mdc-menu-divider>
             <mdc-menu-item id="3">Item 4</mdc-menu-item>
+        </mdc-menu>
+
+        <mdc-menu #menu2 class="menu2" openFrom="topRight">
+            <mdc-menu-item id="0" *ngIf="isLoggedIn" (click)="logout()">Logout</mdc-menu-item>
+            <mdc-menu-item id="1" *ngIf="!isLoggedIn" routerLink="/login">Login</mdc-menu-item>
         </mdc-menu>
 
         <mdc-card class="search-card" [ngClass]= "{'darkThemeHide': isDarkTheme, 'mdcCardHide2': !isHome, 'mdcCardHide': isScrolled}">
@@ -57,10 +62,6 @@
                 </mdc-text-field-box>
             </mdc-card-primary>
         </mdc-card>
-
-       
-
-        
         
     <router-outlet (activate)="checkRoute()" ></router-outlet>
 </div>
