@@ -2,7 +2,7 @@ import { Component, ViewChild, Injectable, EventEmitter, HostListener, NgZone, R
 import { RouterModule, Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { drawerRoutes } from './routes';
-import { MdcMenu, MdcMenuOpenFrom, MdcListItem, MdcTemporaryDrawer, MdcTextField } from '@angular-mdc/web';
+import { MdcMenu, MdcDrawerModule, MdcTextField, MdcDrawer, MdcList, MdcMenuAnchorCorner } from '@angular-mdc/web';
 import { AfterViewInit, OnInit, OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { TranslateService } from '@ngx-translate/core';
 import { NavbarTabComponent } from './navbar-tab/navbar-tab.component';
@@ -84,7 +84,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   private jwt: string;
 
   selectedIndex = -1;
-  openFrom: MdcMenuOpenFrom = 'topRight';
+  openFrom: MdcMenuAnchorCorner = 'top-end';
   @ViewChild('menu1') menu1: MdcMenu;
   @ViewChild('menu2') menu2: MdcMenu;
   @ViewChild('search') search: MdcTextField;
@@ -144,8 +144,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  @ViewChild('temporary') temporaryDrawer: MdcTemporaryDrawer;
-  @ViewChild('listItem') listItem: MdcListItem;
+  @ViewChild('temporary') temporaryDrawer: MdcDrawer;
+  @ViewChild('listItem') listItem: MdcList;
 
   isFixed: boolean = true;
   isWaterfall: boolean = false;
@@ -201,7 +201,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     .map( res => res.json() )
     .subscribe(
       data => { this.element = data 
-        this.isLoggedIn = true;
+        if(this.element[0]['msg'] == 'Token Valid' && this.element[0]['status'] == 'Success') {
+          this.isLoggedIn = true;
+        }
       },
       err => console.error(err),
       () => console.log('done')

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppComponent, title } from '../app.component'
-import { MdcTemporaryDrawer, MdcPersistentDrawer, MdcListItem, MdcTabBar } from '@angular-mdc/web';
+import { MdcDrawerModule, MdcListItem, MdcTabBar } from '@angular-mdc/web';
 import { drawerRoutes } from '../routes';
 import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Body } from '@angular/http/src/body';

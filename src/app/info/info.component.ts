@@ -80,10 +80,20 @@ export class InfoComponent implements OnInit, AfterViewInit {
     .map( res => res.json() )
     .subscribe(
       data => { this.element = data 
-        let pathcount = Object.keys(data['0'].path).length;
-        let namecount = Object.keys(data['0'].book_name).length;
-        let subjectcount = Object.keys(data['0'].book_subject).length;
-        this.paths = Array(pathcount).fill(0).map((x,i)=> i );
+        let pathcount = 0;
+        if(data['0']['path']) {
+          pathcount = Object.keys(data['0'].path).length;
+        }
+        let namecount = 0;
+        let subjectcount = 0;        
+        if(data['0']['book_name']) {
+          let namecount = Object.keys(data['0'].book_name).length;
+        }
+        if(data['0']['book_subject']) {
+          let subjectcount = Object.keys(data['0'].book_subject).length;
+        }
+        this.paths = Array(1).fill(0).map((x,i)=> i );
+        console.log('length: ');
         this.booknames = Array(namecount).fill(0).map((x,i)=> i );
         this.subjects = Array(subjectcount).fill(0).map((x,i)=> i );
         console.log();

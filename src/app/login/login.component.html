@@ -9,11 +9,11 @@
       <div class="card-wrapper">
           <form #captchaProtectedForm="ngForm">
           
-            <mdc-text-field label="Email" name="email" [(ngModel)]="email" type="email" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
-            <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Email is required</p>
+            <mdc-text-field #emailField [outline]="true" label="Email" name="email" [(ngModel)]="email" type="email" [required]="true" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [disabled]="false" [dense]="false" (change)="checkField(email, 'email')"></mdc-text-field>
+            <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">{{ emailHelper }}</p>
             
-            <mdc-text-field label="Password" name="password" [(ngModel)]="password" type="password" [required]="true" [disabled]="false" [dense]="false" ></mdc-text-field>
-            <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">Password is required</p>
+            <mdc-text-field #passwordField [outline]="true"label="Password" name="password" [(ngModel)]="password" type="password" [required]="true" [disabled]="false" [dense]="false" (change)="checkField(password, 'password')"></mdc-text-field>
+            <p mdc-text-field-helper-text [validation]="true" [persistent]="isEmpty">{{ passwordHelper }}</p>
 
             <mdc-form-field [alignEnd]="false">
               <mdc-checkbox #checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="myModel" [indeterminate]="false"
@@ -32,9 +32,7 @@
             ></re-captcha>
             
             <mdc-card-actions >
-              <div [hidden]="!captchaControl.valid" >
-              <button [disabled]="!captchaProtectedForm.form.valid" mdc-card-button class="mdc-card__submit-actions" (click)="getPost()">Login</button>
-            </div>
+              <button #formButton [primary]="true" [raised]="true" [disabled]="!captchaProtectedForm.form.valid || !captchaControl.valid || !emailField.valid || !isFormValid" mdc-card-button class="mdc-card__submit-actions" (click)="getPost()">Login</button>
               <button mdc-card-button class="mdc-card__submit-actions" style="left: 6em" (click)="getPost()">Need Help?</button>
             </mdc-card-actions>
           </form>
