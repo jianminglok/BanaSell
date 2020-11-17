@@ -1,5 +1,5 @@
-CREATE DATABASE `testdb` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `testdb`;
+CREATE DATABASE `ogiebooks` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `ogiebooks`;
 
 
 CREATE TABLE IF NOT EXISTS `users` (
