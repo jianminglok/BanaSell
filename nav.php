@@ -7,32 +7,32 @@
 
         <!-- ================= Favicon ================== -->
         <!-- Standard -->
-        <link rel="shortcut icon" href="https://ogiebooks.com/img/logo.ico">
+        <link rel="shortcut icon" href="img/logo.ico">
         <!-- Retina iPad Touch Icon-->
-        <link rel="apple-touch-icon" sizes="144x144" href="https://ogiebooks.com/img/logo.ico">
+        <link rel="apple-touch-icon" sizes="144x144" href="img/logo.ico">
         <!-- Retina iPhone Touch Icon-->
-        <link rel="apple-touch-icon" sizes="114x114" href="https://ogiebooks.com/img/logo.ico">
+        <link rel="apple-touch-icon" sizes="114x114" href="img/logo.ico">
         <!-- Standard iPad Touch Icon--> 
-        <link rel="apple-touch-icon" sizes="72x72" href="https://ogiebooks.com/img/logo.ico">
+        <link rel="apple-touch-icon" sizes="72x72" href="img/logo.ico">
         <!-- Standard iPhone Touch Icon--> 
-        <link rel="apple-touch-icon" sizes="57x57" href="https://ogiebooks.com/img/logo.ico">
+        <link rel="apple-touch-icon" sizes="57x57" href="img/logo.ico">
 
     <title>Ogiebooks</title>
 
     <!-- Page styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://ogiebooks.com/css/material.css">
+    <link rel="stylesheet" href="css/material.css">
     <link rel="stylesheet" href="css/_carousel.scss">
     <link rel="stylesheet" href="css/dialog-polyfill.scss">
-    <link rel="stylesheet" href="https://ogiebooks.com/css/styles.css">
-    <link rel="stylesheet" href="https://ogiebooks.com/css/mdl-selectfield.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mdl-selectfield.min.css">
     <link  href="https://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script src="https://code.jquery.com/jquery-1.9.0.js"></script>
     <script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <script src="https://ogiebooks.com/js/material.js"></script>
-    <script src="https://ogiebooks.com/js/mdl-selectfield.min.js"></script>
+    <script src="js/material.js"></script>
+    <script src="js/mdl-selectfield.min.js"></script>
     
     <style>
     #view-source {
@@ -132,7 +132,7 @@ if (isset($_SESSION['previous4']) && isset($_SESSION['created'])) {
       <div class="banasell-header mdl-layout__header  mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
           <span class="banasell-title mdl-layout-title">
-            <a <?php echo ($page == 'index.php') ? "href='#'" : ""; ?> href="index.php"><img class="banasell-logo-image" src="https://ogiebooks.com/icon/ogiebooks.png"></a>
+            <a <?php echo ($page == 'index.php') ? "href='#'" : ""; ?> href="index.php"><img class="banasell-logo-image" src="icon/ogiebooks.png"></a>
           </span>
           <!-- Add spacer, to align navigation to the right in desktop -->
           <div class="banasell-header-spacer mdl-layout-spacer"></div>
@@ -155,7 +155,7 @@ if (isset($_SESSION['previous4']) && isset($_SESSION['created'])) {
             </nav>
           </div>
           <span class="banasell-mobile-title mdl-layout-title">
-          <a <?php echo ($page == 'index.php') ? "href='#'" : ""; ?> href="index.php"><img class="banasell-logo-image" src="https://ogiebooks.com/icon/ogiebooks.png"></a>
+          <a <?php echo ($page == 'index.php') ? "href='#'" : ""; ?> href="index.php"><img class="banasell-logo-image" src="icon/ogiebooks.png"></a>
           </span>
           <button class="banasell-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
             <i class="material-icons">more_vert</i>

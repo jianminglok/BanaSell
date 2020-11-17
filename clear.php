@@ -6,4 +6,4 @@ unset($_SESSION['email']);
 
 if (empty($_SESSION['birthdate'])) {
     header('Location: dob.php');
-} ?>
+}

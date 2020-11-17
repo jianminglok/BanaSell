@@ -26,5 +26,3 @@
 		$msg = "Sorry, your confirmation code is invalid or your email maybe be already activated. <a href='dob.php'>You will now be redirected back to the sign up page.</a>";
 		echo $msg;
 	}
-
-?>
